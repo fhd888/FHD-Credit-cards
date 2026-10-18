@@ -90,4 +90,1324 @@
       gap: 4px;
       scrollbar-width: none;
     }
-    .nav-bar::-webkit-scrollbar {
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-item {
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-item:hover { color: var(--text-main); }
+    .nav-item.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 700; }
+
+    /* CONTENEDOR PRINCIPAL */
+    main { flex: 1; padding: 24px; max-width: 1280px; width: 100%; margin: 0 auto; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* CABECERA MARINA (IDÉNTICA A LA IMAGEN) */
+    .navy-header {
+      background: var(--bg-header);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 28px -6px rgba(11, 19, 43, 0.4);
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .navy-header::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: 120px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .navy-header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; }
+    .navy-header p { font-size: 0.88rem; color: #94a3b8; margin-top: 5px; }
+
+    .navy-badge {
+      background: #17233f;
+      border: 1px solid #28375a;
+      border-radius: 14px;
+      padding: 10px 22px;
+      text-align: center;
+      min-width: 125px;
+    }
+    .navy-badge .badge-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: #38bdf8;
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+    .navy-badge .badge-txt {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* CONTROLES & FILTROS */
+    .panel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .search-input-wrap {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+    .search-input-wrap input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-input-wrap input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .btn-group { display: flex; gap: 8px; align-items: center; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .btn-primary { background: var(--primary); color: white; border: none; }
+    .btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+    .btn-outline { background: var(--bg-card); border-color: var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: rgba(0,0,0,0.03); }
+    .btn-danger { background: var(--danger); color: white; border: none; }
+
+    /* TABLA */
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: var(--shadow);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    thead th {
+      background: rgba(0, 0, 0, 0.02);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody td {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+    tbody tr:hover { background-color: rgba(2, 132, 199, 0.02); }
+    tbody tr:last-child td { border-bottom: none; }
+    tfoot td {
+      background: rgba(0, 0, 0, 0.02);
+      padding: 16px 20px;
+      font-weight: 800;
+      border-top: 2px solid var(--border);
+    }
+
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .font-mono { font-family: var(--font-mono); }
+
+    .badge-promo {
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      display: inline-block;
+    }
+    .badge-empty { color: var(--text-muted); font-size: 0.85rem; }
+
+    .action-icons { display: flex; justify-content: center; gap: 6px; }
+    .icon-action-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: background 0.15s;
+    }
+    .icon-action-btn:hover { background: rgba(0,0,0,0.06); }
+
+    /* TARJETAS VIEW (GRID) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 16px;
+    }
+    .tc-card-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .tc-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .tc-card-name { font-weight: 800; font-size: 1.1rem; }
+    .tc-chip {
+      width: 32px;
+      height: 24px;
+      background: linear-gradient(135deg, #eab308, #ca8a04);
+      border-radius: 5px;
+    }
+    .tc-card-mid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .tc-substat { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+    .tc-subval { font-size: 1rem; font-weight: 700; margin-top: 2px; }
+    .tc-card-bot {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    /* EMPTY STATES */
+    .empty-state-box {
+      text-align: center;
+      padding: 56px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state-box svg { width: 48px; height: 48px; stroke: var(--text-muted); opacity: 0.5; margin-bottom: 14px; }
+    .empty-state-box h3 { font-size: 1.1rem; color: var(--text-main); margin-bottom: 6px; }
+
+    /* SUMMARY CARDS GRID */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .stat-card .sc-title { font-size: 0.72rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); letter-spacing: 0.6px; margin-bottom: 6px; }
+    .stat-card .sc-val { font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); }
+    .sc-val.green { color: var(--success); }
+    .sc-val.red { color: var(--danger); }
+    .sc-val.blue { color: var(--primary); }
+
+    /* CALENDARIO */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+    .cal-day-cell {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      min-height: 95px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cal-day-num { font-size: 0.85rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-muted); }
+    .cal-badge {
+      font-size: 0.68rem;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .cal-cut { background: var(--warning-bg); color: #b45309; border-left: 3px solid var(--warning); }
+    .cal-pay { background: var(--danger-bg); color: #b91c1c; border-left: 3px solid var(--danger); }
+
+    /* MODALES */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 19, 43, 0.7);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 18px;
+    }
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      padding: 28px;
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .modal-header h2 { font-size: 1.3rem; font-weight: 800; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+
+    /* TOAST */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast-msg {
+      background: var(--bg-header);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.88rem;
+      font-weight: 600;
+      animation: toastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .navy-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .navy-badge { width: 100%; text-align: left; }
+      .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="top-bar">
+    <div class="brand-wrap">
+      <div class="brand-logo">F</div>
+      <div>
+        <div class="brand-title">FHD Finanzas</div>
+        <div class="brand-subtitle">Financial Health Development</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button class="btn btn-outline" onclick="toggleTheme()" id="themeBtn" title="Cambiar Tema">🌙</button>
+      <button class="btn btn-outline" onclick="exportData()" title="Descargar Copia de Seguridad JSON">💾 Respaldo</button>
+      <label class="btn btn-outline" style="cursor: pointer;" title="Restaurar Copia JSON">
+        📂 Restaurar
+        <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="importData(event)">
+      </label>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <nav class="nav-bar">
+    <button class="nav-item active" onclick="navigate('tarjetas')">💳 Tarjetas de Crédito</button>
+    <button class="nav-item" onclick="navigate('movimientos')">📊 Movimientos</button>
+    <button class="nav-item" onclick="navigate('cuentas')">🏦 Cuentas & Activos</button>
+    <button class="nav-item" onclick="navigate('metas')">🎯 Metas</button>
+    <button class="nav-item" onclick="navigate('calendario')">📅 Calendario</button>
+    <button class="nav-item" onclick="navigate('simulador')">📈 Interés Compuesto</button>
+  </nav>
+
+  <main>
+    <!-- TAB 1: CONTROL DE TARJETAS DE CRÉDITO -->
+    <section id="pane-tarjetas" class="tab-pane active">
+      <!-- HEADER OFICIAL OSCURO -->
+      <div class="navy-header">
+        <div>
+          <h1>Control de Tarjetas de Crédito</h1>
+          <p>Fechas clave, promociones 0% APR y límites de crédito</p>
+        </div>
+        <div class="navy-badge">
+          <span class="badge-num" id="headerCount">0</span>
+          <span class="badge-txt">Total Tarjetas</span>
+        </div>
+      </div>
+
+      <!-- CONTROLES -->
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="tcSearch" placeholder="Buscar por nombre de tarjeta..." oninput="renderTC()">
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-outline" onclick="toggleTCView()" id="viewModeBtn">🗂️ Vista Tarjetas</button>
+          <button class="btn btn-outline" onclick="exportCardsCSV()">📄 Exportar CSV</button>
+          <button class="btn btn-primary" onclick="openCardModal()">+ Nueva Tarjeta</button>
+        </div>
+      </div>
+
+      <!-- TABLA VISTA -->
+      <div class="table-card" id="tcTableView">
+        <table>
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 50px;">#</th>
+              <th>Tarjeta</th>
+              <th class="text-center">Fecha Cierre</th>
+              <th class="text-center">Pago Día</th>
+              <th class="text-center">Promoción 0% APR</th>
+              <th class="text-right">Límite de Crédito</th>
+              <th class="text-center" style="width: 90px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tcTbody"></tbody>
+          <tfoot id="tcTfoot" style="display: none;">
+            <tr>
+              <td colspan="5" class="text-right">Límite Total de Crédito:</td>
+              <td class="text-right font-mono" id="tcTotalLimit">$0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="empty-state-box" id="tcEmpty">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect width="20" height="14" x="2" y="5" rx="2"/>
+            <line x1="2" x2="22" y1="10" y2="10"/>
+          </svg>
+          <h3>No hay tarjetas registradas</h3>
+          <p>Comienza agregando tu primera tarjeta con el botón "+ Nueva Tarjeta".</p>
+        </div>
+      </div>
+
+      <!-- GRID VISTA (CARDS) -->
+      <div class="cards-grid" id="tcCardsView" style="display: none;"></div>
+    </section>
+
+    <!-- TAB 2: MOVIMIENTOS -->
+    <section id="pane-movimientos" class="tab-pane">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="sc-title">Total Ingresos</div>
+          <div class="sc-val green" id="txIncomeSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title">Total Gastos</div>
+          <div class="sc-val red" id="txExpenseSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title">Flujo Neto</div>
+          <div class="sc-val blue" id="txNetSum">$0.00</div>
+        </div>
+      </div>
+
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="txSearch" placeholder="Buscar por concepto o categoría..." oninput="renderTX()">
+        </div>
+        <button class="btn btn-primary" onclick="openTxModal()">+ Nuevo Movimiento</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Categoría</th>
+              <th>Descripción</th>
+              <th>Cuenta / Tarjeta</th>
+              <th class="text-right">Monto</th>
+              <th class="text-center" style="width: 80px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="txTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="txEmpty">
+          <h3>No hay movimientos registrados</h3>
+          <p>Registra ingresos o gastos para llevar tu control de flujo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CUENTAS & ACTIVOS -->
+    <section id="pane-cuentas" class="tab-pane">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="sc-title">Total Activos</div>
+          <div class="sc-val green" id="accAssetsSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title">Total Pasivos / Deuda</div>
+          <div class="sc-val red" id="accLiabSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title">Patrimonio Neto (Net Worth)</div>
+          <div class="sc-val blue" id="accNetWorth">$0.00</div>
+        </div>
+      </div>
+
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="accSearch" placeholder="Buscar cuenta o activo..." oninput="renderACC()">
+        </div>
+        <button class="btn btn-primary" onclick="openAccModal()">+ Agregar Cuenta / Activo</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Cuenta / Activo</th>
+              <th>Tipo</th>
+              <th>Institución</th>
+              <th class="text-center">APY / Interés</th>
+              <th class="text-right">Saldo Actual</th>
+              <th class="text-center" style="width: 80px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="accTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="accEmpty">
+          <h3>No hay cuentas o inversiones registradas</h3>
+          <p>Añade cuentas bancarias, Webull, préstamos o inmuebles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: METAS -->
+    <section id="pane-metas" class="tab-pane">
+      <div class="panel-controls">
+        <div>
+          <h2>Metas Financieras</h2>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">Seguimiento de fondos de emergencia y compras</p>
+        </div>
+        <button class="btn btn-primary" onclick="openGoalModal()">+ Nueva Meta</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Meta</th>
+              <th>Categoría</th>
+              <th class="text-right">Objetivo</th>
+              <th class="text-right">Ahorro Actual</th>
+              <th style="min-width: 150px;">Progreso</th>
+              <th class="text-center">Fecha Límite</th>
+              <th class="text-center" style="width: 80px;">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="goalTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="goalEmpty">
+          <h3>No hay metas creadas</h3>
+          <p>Define tus objetivos para visualizarlos de forma automática.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CALENDARIO -->
+    <section id="pane-calendario" class="tab-pane">
+      <div class="navy-header" style="margin-bottom: 18px;">
+        <div>
+          <h1>Calendario Financiero Mensual</h1>
+          <p>Días del 1 al 31 con cortes y fechas límite sincronizadas automáticamente</p>
+        </div>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <!-- TAB 6: SIMULADOR INTERÉS COMPUESTO -->
+    <section id="pane-simulador" class="tab-pane">
+      <div class="navy-header" style="margin-bottom: 22px;">
+        <div>
+          <h1>Simulador de Interés Compuesto</h1>
+          <p>Proyecta la capitalización de aportes recurrentes en tus inversiones</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+        <div class="stat-card">
+          <div class="form-group">
+            <label>Capital Inicial ($)</label>
+            <input type="number" id="simInit" value="5000" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label>Aporte Mensual ($)</label>
+            <input type="number" id="simMonthly" value="500" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label>Tasa de Rendimiento Anual Estimada (%)</label>
+            <input type="number" step="0.1" id="simApy" value="8.5" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label>Plazo en Años</label>
+            <input type="number" id="simYears" value="10" oninput="computeSim()">
+          </div>
+        </div>
+
+        <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, var(--bg-card), var(--bg-body));">
+          <div class="sc-title">Capital Acumulado Proyectado</div>
+          <div class="sc-val green" id="simResultFinal" style="font-size: 2.4rem; margin: 8px 0 16px;">$0.00</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">
+            Aportes Propios Acumulados: <strong id="simResultDeposits" class="font-mono" style="color: var(--text-main);">$0.00</strong>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">
+            Intereses / Ganancia Neta: <strong id="simResultInterest" class="font-mono" style="color: var(--primary);">$0.00</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: TARJETAS DE CRÉDITO -->
+  <div class="modal-overlay" id="cardModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="cardModalTitle">Nueva Tarjeta</h2>
+        <button class="icon-action-btn" onclick="closeModal('cardModal')">✕</button>
+      </div>
+      <form onsubmit="handleCardSubmit(event)">
+        <input type="hidden" id="cardEditId">
+        <div class="form-group">
+          <label>Nombre de la Tarjeta</label>
+          <input type="text" id="cardName" placeholder="Ej. Chase Freedom Unlimited" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Día de Corte (1-31)</label>
+            <input type="number" min="1" max="31" id="cardCut" placeholder="Ej. 16" required>
+          </div>
+          <div class="form-group">
+            <label>Día de Pago (1-31)</label>
+            <input type="number" min="1" max="31" id="cardPay" placeholder="Ej. 13" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Promoción 0% APR (Fecha o "-")</label>
+          <input type="text" id="cardPromo" placeholder="Ej. 10/22/2026 o -">
+        </div>
+        <div class="form-group">
+          <label>Límite de Crédito ($)</label>
+          <input type="text" id="cardLimit" placeholder="Ej. 12000 o Por definir" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('cardModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar Tarjeta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: MOVIMIENTOS -->
+  <div class="modal-overlay" id="txModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Registrar Movimiento</h2>
+        <button class="icon-action-btn" onclick="closeModal('txModal')">✕</button>
+      </div>
+      <form onsubmit="handleTxSubmit(event)">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Fecha</label>
+            <input type="date" id="txDate" required>
+          </div>
+          <div class="form-group">
+            <label>Tipo</label>
+            <select id="txType">
+              <option value="gasto">Gasto</option>
+              <option value="ingreso">Ingreso</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Categoría</label>
+          <input type="text" id="txCat" placeholder="Ej. Comida, Servicios, Negocio, Transporte" required>
+        </div>
+        <div class="form-group">
+          <label>Descripción / Concepto</label>
+          <input type="text" id="txDesc" placeholder="Detalle de la transacción" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Cuenta / Medio</label>
+            <input type="text" id="txAcc" placeholder="Ej. Chase Checking">
+          </div>
+          <div class="form-group">
+            <label>Monto ($)</label>
+            <input type="number" step="0.01" id="txAmount" placeholder="0.00" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('txModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CUENTA / ACTIVO -->
+  <div class="modal-overlay" id="accModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Nueva Cuenta / Activo</h2>
+        <button class="icon-action-btn" onclick="closeModal('accModal')">✕</button>
+      </div>
+      <form onsubmit="handleAccSubmit(event)">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" id="accName" placeholder="Ej. Webull Brokerage / Pathfinder" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Tipo</label>
+            <select id="accType">
+              <option value="activo">Activo (Inversión / Cheques / Cash)</option>
+              <option value="pasivo">Pasivo (Préstamo / Deuda)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Institución</label>
+            <input type="text" id="accInst" placeholder="Ej. Webull, Chase, Lendbuzz">
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>APY / Rendimiento (%)</label>
+            <input type="number" step="0.01" id="accApy" placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label>Saldo Actual ($)</label>
+            <input type="number" step="0.01" id="accBal" placeholder="0.00" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('accModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: META -->
+  <div class="modal-overlay" id="goalModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Nueva Meta de Ahorro</h2>
+        <button class="icon-action-btn" onclick="closeModal('goalModal')">✕</button>
+      </div>
+      <form onsubmit="handleGoalSubmit(event)">
+        <div class="form-group">
+          <label>Nombre de la Meta</label>
+          <input type="text" id="goalName" placeholder="Ej. Fondo de Emergencia" required>
+        </div>
+        <div class="form-group">
+          <label>Categoría</label>
+          <input type="text" id="goalCat" placeholder="Ej. Ahorro, Inversión, Auto">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label>Objetivo ($)</label>
+            <input type="number" step="0.01" id="goalTarget" placeholder="10000" required>
+          </div>
+          <div class="form-group">
+            <label>Ahorrado Actual ($)</label>
+            <input type="number" step="0.01" id="goalCurrent" placeholder="2000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Fecha Límite</label>
+          <input type="date" id="goalDeadline">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('goalModal')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    // ESTADO GLOBAL & LOCALSTORAGE
+    const STORAGE_KEY = "fhd_finanzas_db";
+    let db = {
+      cards: [],
+      transactions: [],
+      accounts: [],
+      goals: []
+    };
+
+    let isCardsViewGrid = false;
+
+    function loadState() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          db = JSON.parse(stored);
+        } catch (e) {
+          console.error(e);
+        }
+      }
+      renderAll();
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+    }
+
+    function notify(text) {
+      const c = document.getElementById("toastContainer");
+      const el = document.createElement("div");
+      el.className = "toast-msg";
+      el.textContent = text;
+      c.appendChild(el);
+      setTimeout(() => el.remove(), 2800);
+    }
+
+    function formatMoney(val) {
+      if (typeof val === "string" && isNaN(Number(val.replace(/[^0-9.-]+/g, "")))) return val;
+      const num = typeof val === "number" ? val : parseFloat(val.toString().replace(/[^0-9.-]+/g, ""));
+      if (isNaN(num)) return "Por definir";
+      return "$" + num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    // NAVEGACIÓN
+    function navigate(tabId) {
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+      document.getElementById(`pane-${tabId}`).classList.add("active");
+      event.currentTarget.classList.add("active");
+
+      if (tabId === "calendario") renderCalendar();
+      if (tabId === "simulador") computeSim();
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+      const isDark = document.body.classList.contains("dark");
+      document.getElementById("themeBtn").textContent = isDark ? "☀️" : "🌙";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // 1. TARJETAS DE CRÉDITO
+    function toggleTCView() {
+      isCardsViewGrid = !isCardsViewGrid;
+      document.getElementById("tcTableView").style.display = isCardsViewGrid ? "none" : "block";
+      document.getElementById("tcCardsView").style.display = isCardsViewGrid ? "grid" : "none";
+      document.getElementById("viewModeBtn").textContent = isCardsViewGrid ? "📋 Vista Tabla" : "🗂️ Vista Tarjetas";
+      renderTC();
+    }
+
+    function openCardModal(card = null) {
+      document.getElementById("cardEditId").value = card ? card.id : "";
+      document.getElementById("cardName").value = card ? card.name : "";
+      document.getElementById("cardCut").value = card ? card.cut : "";
+      document.getElementById("cardPay").value = card ? card.pay : "";
+      document.getElementById("cardPromo").value = card ? (card.promo === "-" ? "" : card.promo) : "";
+      document.getElementById("cardLimit").value = card ? card.limit : "";
+      document.getElementById("cardModalTitle").textContent = card ? "Editar Tarjeta" : "Nueva Tarjeta";
+      document.getElementById("cardModal").style.display = "flex";
+      document.getElementById("cardName").focus();
+    }
+
+    function handleCardSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("cardEditId").value;
+      const name = document.getElementById("cardName").value.trim();
+      const cut = parseInt(document.getElementById("cardCut").value, 10);
+      const pay = parseInt(document.getElementById("cardPay").value, 10);
+      const promo = document.getElementById("cardPromo").value.trim() || "-";
+      const rawLimit = document.getElementById("cardLimit").value.trim();
+
+      let limit = rawLimit;
+      const cleanNum = parseFloat(rawLimit.replace(/[^0-9.-]+/g, ""));
+      if (!isNaN(cleanNum) && !rawLimit.toLowerCase().includes("definir")) {
+        limit = cleanNum;
+      }
+
+      if (id) {
+        const item = db.cards.find(c => c.id === id);
+        if (item) Object.assign(item, { name, cut, pay, promo, limit });
+        notify("Tarjeta actualizada");
+      } else {
+        db.cards.push({ id: Date.now().toString(), name, cut, pay, promo, limit });
+        notify("Tarjeta agregada");
+      }
+
+      saveState();
+      renderTC();
+      closeModal("cardModal");
+    }
+
+    function deleteCard(id) {
+      if (confirm("¿Deseas eliminar esta tarjeta?")) {
+        db.cards = db.cards.filter(c => c.id !== id);
+        saveState();
+        renderTC();
+        notify("Tarjeta eliminada");
+      }
+    }
+
+    function renderTC() {
+      const q = document.getElementById("tcSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("tcTbody");
+      const grid = document.getElementById("tcCardsView");
+      const empty = document.getElementById("tcEmpty");
+      const tfoot = document.getElementById("tcTfoot");
+      tbody.innerHTML = "";
+      grid.innerHTML = "";
+
+      const filtered = db.cards.filter(c => c.name.toLowerCase().includes(q));
+      document.getElementById("headerCount").textContent = db.cards.length;
+
+      if (db.cards.length === 0) {
+        empty.style.display = "block";
+        tfoot.style.display = "none";
+        return;
+      }
+
+      empty.style.display = filtered.length === 0 ? "block" : "none";
+      tfoot.style.display = "table-footer-group";
+
+      let totalLimit = 0;
+      filtered.forEach((c, idx) => {
+        let numLim = 0;
+        if (typeof c.limit === "number") numLim = c.limit;
+        else {
+          const parsed = parseFloat(c.limit.toString().replace(/[^0-9.-]+/g, ""));
+          numLim = isNaN(parsed) ? 0 : parsed;
+        }
+        totalLimit += numLim;
+
+        const promoHtml = (c.promo && c.promo !== "-")
+          ? `<span class="badge-promo">${c.promo}</span>`
+          : `<span class="badge-empty">-</span>`;
+
+        // Vista Tabla
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="text-center font-mono" style="color:var(--text-muted);">${idx + 1}</td>
+          <td style="font-weight:700;">${c.name}</td>
+          <td class="text-center font-mono">${c.cut}</td>
+          <td class="text-center font-mono">${c.pay}</td>
+          <td class="text-center">${promoHtml}</td>
+          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(c.limit)}</td>
+          <td class="action-icons">
+            <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})' title="Editar">✏️</button>
+            <button class="icon-action-btn" onclick="deleteCard('${c.id}')" title="Eliminar">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+
+        // Vista Tarjetas
+        const cardBox = document.createElement("div");
+        cardBox.className = "tc-card-item";
+        cardBox.innerHTML = `
+          <div class="tc-card-top">
+            <div>
+              <span style="font-size:0.7rem; color:var(--text-muted); font-weight:700;">#${idx + 1}</span>
+              <div class="tc-card-name">${c.name}</div>
+            </div>
+            <div class="tc-chip"></div>
+          </div>
+          <div class="tc-card-mid">
+            <div>
+              <div class="tc-substat">Corte</div>
+              <div class="tc-subval font-mono">Día ${c.cut}</div>
+            </div>
+            <div>
+              <div class="tc-substat">Pago</div>
+              <div class="tc-subval font-mono">Día ${c.pay}</div>
+            </div>
+          </div>
+          <div>
+            <div class="tc-substat">0% APR Promo</div>
+            <div style="margin-top:2px;">${promoHtml}</div>
+          </div>
+          <div class="tc-card-bot">
+            <div>
+              <div class="tc-substat">Límite</div>
+              <div style="font-size:1.15rem; font-weight:800;" class="font-mono">${formatMoney(c.limit)}</div>
+            </div>
+            <div class="action-icons">
+              <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})'>✏️</button>
+              <button class="icon-action-btn" onclick="deleteCard('${c.id}')">🗑️</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(cardBox);
+      });
+
+      document.getElementById("tcTotalLimit").textContent = formatMoney(totalLimit);
+    }
+
+    function exportCardsCSV() {
+      if (db.cards.length === 0) return alert("No hay tarjetas para exportar.");
+      let csv = "Numero,Tarjeta,Fecha Cierre,Pago Dia,Promocion 0% APR,Limite de Credito\n";
+      db.cards.forEach((c, i) => {
+        csv += `"${i+1}","${c.name}","${c.cut}","${c.pay}","${c.promo}","${c.limit}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `tarjetas_credito_${new Date().toISOString().split("T")[0]}.csv`;
+      a.click();
+    }
+
+    // 2. MOVIMIENTOS
+    function openTxModal() {
+      document.getElementById("txDate").value = new Date().toISOString().split("T")[0];
+      document.getElementById("txCat").value = "";
+      document.getElementById("txDesc").value = "";
+      document.getElementById("txAcc").value = "";
+      document.getElementById("txAmount").value = "";
+      document.getElementById("txModal").style.display = "flex";
+    }
+
+    function handleTxSubmit(e) {
+      e.preventDefault();
+      db.transactions.push({
+        id: Date.now().toString(),
+        date: document.getElementById("txDate").value,
+        type: document.getElementById("txType").value,
+        cat: document.getElementById("txCat").value.trim(),
+        desc: document.getElementById("txDesc").value.trim(),
+        acc: document.getElementById("txAcc").value.trim() || "-",
+        amount: parseFloat(document.getElementById("txAmount").value) || 0
+      });
+      saveState();
+      renderTX();
+      closeModal("txModal");
+      notify("Movimiento guardado");
+    }
+
+    function deleteTx(id) {
+      if (confirm("¿Eliminar este movimiento?")) {
+        db.transactions = db.transactions.filter(t => t.id !== id);
+        saveState();
+        renderTX();
+        notify("Movimiento eliminado");
+      }
+    }
+
+    function renderTX() {
+      const q = document.getElementById("txSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("txTbody");
+      tbody.innerHTML = "";
+
+      let inc = 0, exp = 0;
+      db.transactions.forEach(t => {
+        if (t.type === "ingreso") inc += t.amount;
+        else exp += t.amount;
+      });
+
+      document.getElementById("txIncomeSum").textContent = formatMoney(inc);
+      document.getElementById("txExpenseSum").textContent = formatMoney(exp);
+      document.getElementById("txNetSum").textContent = formatMoney(inc - exp);
+
+      const filtered = db.transactions.filter(t => t.desc.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
+      document.getElementById("txEmpty").style.display = filtered.length === 0 ? "block" : "none";
+
+      filtered.forEach(t => {
+        const isInc = t.type === "ingreso";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="font-mono" style="color:var(--text-muted);">${t.date}</td>
+          <td><span class="badge-promo" style="background:${isInc?'var(--success-bg)':'var(--danger-bg)'}; color:${isInc?'var(--success)':'var(--danger)'};">${isInc?'Ingreso':'Gasto'}</span></td>
+          <td>${t.cat}</td>
+          <td style="font-weight:600;">${t.desc}</td>
+          <td style="color:var(--text-muted);">${t.acc}</td>
+          <td class="text-right font-mono" style="font-weight:700; color:${isInc?'var(--success)':'var(--danger)'};">
+            ${isInc?'+':'-'}${formatMoney(t.amount)}
+          </td>
+          <td class="text-center">
+            <button class="icon-action-btn" onclick="deleteTx('${t.id}')">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 3. CUENTAS & ACTIVOS
+    function openAccModal() {
+      document.getElementById("accName").value = "";
+      document.getElementById("accInst").value = "";
+      document.getElementById("accApy").value = "";
+      document.getElementById("accBal").value = "";
+      document.getElementById("accModal").style.display = "flex";
+    }
+
+    function handleAccSubmit(e) {
+      e.preventDefault();
+      db.accounts.push({
+        id: Date.now().toString(),
+        name: document.getElementById("accName").value.trim(),
+        type: document.getElementById("accType").value,
+        inst: document.getElementById("accInst").value.trim() || "-",
+        apy: parseFloat(document.getElementById("accApy").value) || 0,
+        balance: parseFloat(document.getElementById("accBal").value) || 0
+      });
+      saveState();
+      renderACC();
+      closeModal("accModal");
+      notify("Cuenta agregada");
+    }
+
+    function deleteAcc(id) {
+      if (confirm("¿Eliminar esta cuenta?")) {
+        db.accounts = db.accounts.filter(a => a.id !== id);
+        saveState();
+        renderACC();
+        notify("Cuenta eliminada");
+      }
+    }
+
+    function renderACC() {
+      const q = document.getElementById("accSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("accTbody");
+      tbody.innerHTML = "";
+
+      let assets = 0, liab = 0;
+      db.accounts.forEach(a => {
+        if (a.type === "activo") assets += a.balance;
+        else liab += a.balance;
+      });
+
+      document.getElementById("accAssetsSum").textContent = formatMoney(assets);
+      document.getElementById("accLiabSum").textContent = formatMoney(liab);
+      document.getElementById("accNetWorth").textContent = formatMoney(assets - liab);
+
+      const filtered = db.accounts.filter(a => a.name.toLowerCase().includes(q) || a.inst.toLowerCase().includes(q));
+      document.getElementById("accEmpty").style.display = filtered.length === 0 ? "block" : "none";
+
+      filtered.forEach(a => {
+        const isActivo = a.type === "activo";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="font-weight:700;">${a.name}</td>
+          <td><span class="badge-promo" style="background:${isActivo?'var(--success-bg)':'var(--danger-bg)'}; color:${isActivo?'var(--success)':'var(--danger)'};">${isActivo?'ACTIVO':'PASIVO'}</span></td>
+          <td>${a.inst}</td>
+          <td class="text-center font-mono">${a.apy ? a.apy + '%' : '-'}</td>
+          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(a.balance)}</td>
+          <td class="text-center">
+            <button class="icon-action-btn" onclick="deleteAcc('${a.id}')">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 4. METAS
+    function openGoalModal() {
+      document.getElementById("goalName").value = "";
+      document.getElementById("goalCat").value = "";
+      document.getElementById("goalTarget").value = "";
+      document.getElementById("goalCurrent").value = "";
+      document.getElementById("goalDeadline").value = "";
+      document.getElementById("goalModal").style.display = "flex";
+    }
+
+    function handleGoalSubmit(e) {
+      e.preventDefault();
+      db.goals.push({
+        id: Date.now().toString(),
+        name: document.getElementById("goalName").value.trim(),
+        cat: document.getElementById("goalCat").value.trim() || "General",
+        target: parseFloat(document.getElementById("goalTarget").value) || 0,
+        current: parseFloat(document.getElementById("goalCurrent").value) || 0,
+        deadline: document.getElementById("goalDeadline").value || "-"
+      });
+      saveState();
+      renderGoals();
+      closeModal("goalModal");
+      notify("Meta agregada");
+    }
+
+    function deleteGoal(id) {
+      if (confirm("¿Eliminar esta meta?")) {
+        db.goals = db.goals.filter(g => g.id !== id);
+        saveState();
+        renderGoals();
+        notify("Meta eliminada");
+      }
+    }
+
+    function renderGoals() {
+      const tbody = document.getElementById("goalTbody");
+      tbody.innerHTML = "";
+      document.getElementById("goalEmpty").style.display = db.goals.length === 0 ? "block" : "none";
+
+      db.goals.forEach(g => {
+        const pct = g.target > 0 ? Math.min(100, Math.round((g.current / g.target) * 100)) : 0;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="font-weight:700;">${g.name}</td>
+          <td>${g.cat}</td>
+          <td class="text-right font-mono">${formatMoney(g.target)}</td>
+          <td class="text-right font-mono" style="font-weight:700; color:var(--primary);">${formatMoney(g.current)}</td>
+          <td>
+            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px; font-weight:700;">
+              <span>Progreso</span><span>${pct}%</span>
+            </div>
+            <div style="background:var(--border); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:var(--primary); width:${pct}%; height:100%; border-radius:10px;"></div>
+            </div>
+          </td>
+          <td class="text-center font-mono" style="color:var(--text-muted);">${g.deadline}</td>
+          <td class="text-center">
+            <button class="icon-action-btn" onclick="deleteGoal('${g.id}')">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 5. CALENDARIO
+    function renderCalendar() {
+      const grid = document.getElementById("calendarGrid");
+      grid.innerHTML = "";
+
+      for (let day = 1; day <= 31; day++) {
+        const cell = document.createElement("div");
+        cell.className = "cal-day-cell";
+        cell.innerHTML = `<div class="cal-day-num">${day < 10 ? '0' + day : day}</div>`;
+
+        db.cards.forEach(c => {
+          if (c.cut === day) {
+            cell.innerHTML += `<div class="cal-badge cal-cut" title="Corte: ${c.name}">✂️ Corte: ${c.name}</div>`;
+          }
+          if (c.pay === day) {
+            cell.innerHTML += `<div class="cal-badge cal-pay" title="Pago: ${c.name}">💳 Pago: ${c.name}</div>`;
+          }
+        });
+
+        grid.appendChild(cell);
+      }
+    }
+
+    // 6. SIMULADOR
+    function computeSim() {
+      const P = parseFloat(document.getElementById("simInit").value) || 0;
+      const PMT = parseFloat(document.getElementById("simMonthly").value) || 0;
+      const r = (parseFloat(document.getElementById("simApy").value) || 0) / 100 / 12;
+      const n = (parseFloat(document.getElementById("simYears").value) || 0) * 12;
+
+      let balance = P;
+      let deposits = P;
+
+      for (let i = 0; i < n; i++) {
+        balance = balance * (1 + r) + PMT;
+        deposits += PMT;
+      }
+
+      const interest = Math.max(0, balance - deposits);
+      document.getElementById("simResultFinal").textContent = formatMoney(balance);
+      document.getElementById("simResultDeposits").textContent = formatMoney(deposits);
+      document.getElementById("simResultInterest").textContent = formatMoney(interest);
+    }
+
+    // BACKUP & RESTORE
+    function exportData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
+      const a = document.createElement("a");
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `fhd_finanzas_backup_${new Date().toISOString().split("T")[0]}.json`);
+      a.click();
+      notify("Copia descargada");
+    }
+
+    function importData(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          db = {
+            cards: parsed.cards || [],
+            transactions: parsed.transactions || [],
+            accounts: parsed.accounts || [],
+            goals: parsed.goals || []
+          };
+          saveState();
+          renderAll();
+          notify("Base de datos restaurada");
+        } catch (err) {
+          alert("Archivo JSON no válido");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function renderAll() {
+      renderTC();
+      renderTX();
+      renderACC();
+      renderGoals();
+    }
+
+    window.addEventListener("DOMContentLoaded", loadState);
+  </script>
+</body>
+</html>
