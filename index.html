@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>FHD Finanzas | Financial Health Development</title>
   
-  <!-- Favicon FHD Oficial Vectorial -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23022c22'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z' fill='url(%23g)' stroke='url(%23gold)' stroke-width='4'/%3E%3Ctext x='50' y='58' font-family='sans-serif' font-size='22' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='1'%3EFHD%3C/text%3E%3Ccircle cx='50' cy='74' r='4' fill='url(%23gold)'/%3E%3C/svg%3E">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23022c22'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z' fill='url(%23g)' stroke='url(%23gold)' stroke-width='4'/%3E%3Ctext x='50' y='58' font-family='sans-serif' font-size='22' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='1'%3EFHD%3C/text%3E%3Ccircle cx='50' cy='74' r='4' fill='url(%23gold)'/%3E%3C/svg%3E">
+  <!-- Favicon Vectorial Oficial FHD -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2310b981'/%3E%3Cstop offset='100%25' stop-color='%23022c22'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z' fill='url(%23g)' stroke='url(%23gold)' stroke-width='4'/%3E%3Ctext x='50' y='58' font-family='sans-serif' font-size='22' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='1'%3EFHD%3C/text%3E%3Ccircle cx='50' cy='74' r='4' fill='url(%23gold)'/%3E%3C/svg%3E">
 
   <!-- Tipografías de Alta Fidelidad -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +16,7 @@
   <style>
     :root {
       --bg-body: #061410;
-      --bg-card: #0b1f1a;
+      --bg-card: rgba(11, 31, 26, 0.92);
       --bg-surface-elevated: #102d25;
       --bg-header: #04100d;
       --border: #163e33;
@@ -30,11 +29,11 @@
       --gold-light: #fbbf24;
       --accent-blue: #38bdf8;
       --success: #10b981;
-      --success-bg: rgba(16, 185, 129, 0.15);
+      --success-bg: rgba(16, 185, 129, 0.16);
       --danger: #ef4444;
-      --danger-bg: rgba(239, 68, 68, 0.15);
+      --danger-bg: rgba(239, 68, 68, 0.16);
       --warning: #f59e0b;
-      --warning-bg: rgba(245, 158, 11, 0.15);
+      --warning-bg: rgba(245, 158, 11, 0.16);
       --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
       --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -70,11 +69,14 @@
       display: flex;
       flex-direction: column;
       transition: background-color 0.25s, color 0.25s;
-      background-image: radial-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px);
-      background-size: 24px 24px;
+      background-image: 
+        radial-gradient(rgba(16, 185, 129, 0.06) 1px, transparent 1px),
+        linear-gradient(135deg, rgba(6, 20, 16, 0.95) 0%, rgba(2, 44, 34, 0.92) 100%);
+      background-size: 24px 24px, cover;
+      background-attachment: fixed;
     }
 
-    /* TOP BAR & BRAND */
+    /* TOP BAR */
     .top-bar {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border);
@@ -85,14 +87,10 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
     }
     .brand-wrap { display: flex; align-items: center; gap: 14px; }
-    .brand-logo-svg {
-      width: 44px;
-      height: 44px;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
-    }
+    .brand-logo-svg { width: 44px; height: 44px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
     .brand-title {
       font-weight: 800;
       font-size: 1.25rem;
@@ -103,7 +101,19 @@
     }
     .brand-subtitle { font-size: 0.72rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.8px; }
 
-    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .top-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    select, input[type="month"], input[type="date"], input[type="text"], input[type="number"] {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-main);
+      padding: 8px 12px;
+      font-size: 0.88rem;
+      outline: none;
+      transition: all 0.2s;
+    }
+    select:focus, input:focus { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2); }
 
     .lang-switcher {
       display: flex;
@@ -114,7 +124,7 @@
       padding: 2px;
     }
     .lang-btn {
-      padding: 6px 12px;
+      padding: 5px 10px;
       border: none;
       background: transparent;
       color: var(--text-muted);
@@ -122,15 +132,10 @@
       font-weight: 700;
       cursor: pointer;
       border-radius: 8px;
-      transition: all 0.2s;
     }
-    .lang-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    }
+    .lang-btn.active { background: var(--primary); color: #fff; }
 
-    /* TABS NAVIGATION */
+    /* NAVEGACIÓN TABS */
     .nav-bar {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border);
@@ -138,11 +143,10 @@
       overflow-x: auto;
       padding: 0 24px;
       gap: 6px;
-      scrollbar-width: none;
+      scrollbar-width: thin;
     }
-    .nav-bar::-webkit-scrollbar { display: none; }
     .nav-item {
-      padding: 14px 18px;
+      padding: 13px 18px;
       font-size: 0.88rem;
       font-weight: 600;
       color: var(--text-muted);
@@ -163,227 +167,51 @@
       font-weight: 700;
     }
 
-    /* MAIN CONTAINER */
-    main { flex: 1; padding: 24px; max-width: 1300px; width: 100%; margin: 0 auto; }
+    /* CONTENEDOR PRINCIPAL */
+    main { flex: 1; padding: 22px; max-width: 1320px; width: 100%; margin: 0 auto; }
     .tab-pane { display: none; }
     .tab-pane.active { display: block; animation: tabFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
     @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* CABECERA FINANCIERA (ESTILO CONTROL DE TARJETAS ORIGINAL) */
+    /* CARDS & GRIDS */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .card {
+      background-color: var(--bg-card);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
     .fin-header {
       background: linear-gradient(135deg, #021a14 0%, #07382c 100%);
       color: #ffffff;
       border-radius: 18px;
-      padding: 24px 30px;
+      padding: 22px 28px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: var(--shadow);
       border: 1px solid var(--border-gold);
       margin-bottom: 22px;
-      position: relative;
-      overflow: hidden;
+      flex-wrap: wrap;
+      gap: 16px;
     }
-    .fin-header::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: 140px;
-      width: 250px;
-      height: 250px;
-      background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .fin-header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; }
-    .fin-header p { font-size: 0.88rem; color: #a7f3d0; margin-top: 5px; }
-
+    .fin-header h1 { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.5px; }
+    .fin-header p { font-size: 0.85rem; color: #a7f3d0; margin-top: 4px; }
     .fin-badge {
-      background: rgba(2, 26, 20, 0.8);
+      background: rgba(2, 26, 20, 0.85);
       border: 1px solid var(--gold);
       border-radius: 14px;
-      padding: 12px 24px;
+      padding: 10px 20px;
       text-align: center;
       min-width: 130px;
     }
-    .fin-badge .badge-val {
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: var(--gold-light);
-      font-family: var(--font-mono);
-      line-height: 1;
-    }
-    .fin-badge .badge-lbl {
-      font-size: 0.68rem;
-      color: #a7f3d0;
-      text-transform: uppercase;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      margin-top: 5px;
-      display: block;
-    }
+    .fin-badge .badge-val { font-size: 1.7rem; font-weight: 800; color: var(--gold-light); font-family: var(--font-mono); line-height: 1; }
+    .fin-badge .badge-lbl { font-size: 0.68rem; color: #a7f3d0; text-transform: uppercase; font-weight: 700; margin-top: 4px; display: block; }
 
-    /* CONTROLES Y BOTONES */
-    .panel-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-    .search-input-wrap { flex: 1; min-width: 260px; }
-    .search-input-wrap input {
-      width: 100%;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 11px 16px;
-      font-size: 0.9rem;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.2s;
-    }
-    .search-input-wrap input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
-    }
-
-    .btn-group { display: flex; gap: 8px; align-items: center; }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      border-radius: 12px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: all 0.18s;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-      color: #ffffff;
-      border: none;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-    }
-    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
-    .btn-outline { background: var(--bg-card); border-color: var(--border); color: var(--text-main); }
-    .btn-outline:hover { background: var(--bg-surface-elevated); }
-    .btn-danger { background: var(--danger); color: white; border: none; }
-
-    /* TABLA */
-    .table-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      overflow-x: auto;
-      box-shadow: var(--shadow);
-    }
-    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
-    thead th {
-      background: rgba(0, 0, 0, 0.15);
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 0.6px;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    tbody td {
-      padding: 15px 20px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-main);
-      vertical-align: middle;
-    }
-    tbody tr:hover { background-color: rgba(16, 185, 129, 0.03); }
-    tbody tr:last-child td { border-bottom: none; }
-    tfoot td {
-      background: rgba(0, 0, 0, 0.15);
-      padding: 16px 20px;
-      font-weight: 800;
-      border-top: 2px solid var(--border);
-    }
-
-    .text-center { text-align: center; }
-    .text-right { text-align: right; }
-    .font-mono { font-family: var(--font-mono); }
-
-    .badge-promo {
-      background: var(--success-bg);
-      color: var(--success);
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-family: var(--font-mono);
-      display: inline-block;
-      border: 1px solid rgba(16, 185, 129, 0.3);
-    }
-    .badge-empty { color: var(--text-muted); font-size: 0.85rem; }
-
-    .action-icons { display: flex; justify-content: center; gap: 6px; }
-    .icon-action-btn {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 6px 8px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      transition: background 0.15s;
-    }
-    .icon-action-btn:hover { background: var(--bg-surface-elevated); }
-
-    /* TARJETAS VIEW */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 18px;
-    }
-    .tc-card-item {
-      background: linear-gradient(135deg, var(--bg-card), var(--bg-surface-elevated));
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
-    .tc-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
-    .tc-card-name { font-weight: 800; font-size: 1.15rem; }
-    .tc-chip {
-      width: 36px;
-      height: 26px;
-      background: linear-gradient(135deg, #fbbf24, #b45309);
-      border-radius: 6px;
-      box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
-    }
-    .tc-card-mid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-    .tc-substat { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
-    .tc-subval { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
-    .tc-card-bot {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
-    }
-
-    /* EMPTY STATES */
-    .empty-state-box {
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--text-muted);
-    }
-    .empty-state-box svg { width: 50px; height: 50px; stroke: var(--text-muted); opacity: 0.4; margin-bottom: 14px; }
-    .empty-state-box h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 6px; font-weight: 700; }
-
-    /* SUMMARY CARDS GRID */
+    /* ESTADÍSTICAS RÁPIDAS */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -398,116 +226,137 @@
       box-shadow: var(--shadow);
     }
     .stat-card .sc-title { font-size: 0.74rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); letter-spacing: 0.6px; margin-bottom: 6px; }
-    .stat-card .sc-val { font-size: 1.65rem; font-weight: 800; font-family: var(--font-mono); }
+    .stat-card .sc-val { font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); }
     .sc-val.green { color: var(--success); }
     .sc-val.red { color: var(--danger); }
     .sc-val.blue { color: var(--accent-blue); }
 
-    /* CALENDARIO */
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      white-space: nowrap;
     }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: #fff; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-outline { background: var(--bg-surface-elevated); border-color: var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: rgba(16, 185, 129, 0.15); border-color: var(--primary); }
+    .btn-danger { background: var(--danger); color: white; }
+
+    /* TABLA Y LISTAS */
+    .table-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow-x: auto; box-shadow: var(--shadow); }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem; }
+    thead th { background: rgba(0, 0, 0, 0.2); color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; font-weight: 800; padding: 13px 18px; border-bottom: 1px solid var(--border); }
+    tbody td { padding: 13px 18px; border-bottom: 1px solid var(--border); color: var(--text-main); vertical-align: middle; }
+    tbody tr:hover { background: rgba(16, 185, 129, 0.04); }
+    tbody tr:last-child td { border-bottom: none; }
+    tfoot td { background: rgba(0, 0, 0, 0.25); padding: 15px 18px; font-weight: 800; border-top: 2px solid var(--border); }
+    .font-mono { font-family: var(--font-mono); }
+    .text-right { text-align: right; }
+    .text-center { text-align: center; }
+
+    .item-list { list-style: none; max-height: 320px; overflow-y: auto; }
+    .item-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+    .item-row:last-child { border-bottom: none; }
+    .delete-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px 8px; border-radius: 6px; }
+    .delete-btn:hover { color: var(--danger); background: var(--danger-bg); }
+
+    .badge-promo { background: var(--success-bg); color: var(--success); font-size: 0.76rem; font-weight: 700; padding: 3px 8px; border-radius: 6px; font-family: var(--font-mono); border: 1px solid rgba(16, 185, 129, 0.3); }
+    .badge-empty { color: var(--text-muted); }
+
+    /* TARJETAS GRID VIEW */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; }
+    .tc-card-item {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-surface-elevated));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .tc-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+    .tc-chip { width: 34px; height: 24px; background: linear-gradient(135deg, #fbbf24, #b45309); border-radius: 5px; }
+    .tc-card-mid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+    .tc-substat { font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+    .tc-subval { font-size: 1rem; font-weight: 700; margin-top: 2px; }
+    .tc-card-bot { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 12px; border-top: 1px dashed var(--border); }
+
+    /* CALENDARIO MENSUAL */
+    .cal-nav-container { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+    .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; text-align: center; font-weight: 800; font-size: 0.74rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px; }
+    .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
     .cal-day-cell {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      min-height: 95px;
-      padding: 10px;
+      border-radius: 12px;
+      min-height: 94px;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    .cal-day-num { font-size: 0.85rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-muted); }
-    .cal-badge {
-      font-size: 0.68rem;
-      padding: 4px 6px;
-      border-radius: 6px;
-      font-weight: 700;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .cal-cut { background: var(--warning-bg); color: var(--gold-light); border-left: 3px solid var(--gold); }
-    .cal-pay { background: var(--danger-bg); color: #f87171; border-left: 3px solid var(--danger); }
+    .cal-day-cell:hover { background: var(--bg-surface-elevated); border-color: var(--primary); transform: translateY(-1px); }
+    .cal-day-cell.other-month { opacity: 0.35; }
+    .cal-day-cell.today { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold) inset; }
+    .cal-day-cell.selected { border-color: var(--accent-blue); background: rgba(56, 189, 248, 0.12); }
+    .cal-day-num { font-size: 0.82rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; }
+    .cal-badge { font-size: 0.65rem; padding: 2px 5px; border-radius: 4px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
+    .cal-cut { background: var(--warning-bg); color: var(--gold-light); border-left: 2px solid var(--gold); }
+    .cal-pay { background: var(--danger-bg); color: #f87171; border-left: 2px solid var(--danger); }
+    .cal-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
+    .cal-dot.inc { background: var(--success); }
+    .cal-dot.exp { background: var(--danger); }
 
-    /* MODALES */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(2, 26, 20, 0.75);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-      justify-content: center;
-      align-items: center;
-      padding: 18px;
-    }
-    .modal-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-gold);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 500px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
-    .modal-header h2 { font-size: 1.3rem; font-weight: 800; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px; }
-    .form-group input, .form-group select {
-      width: 100%;
-      background: var(--bg-body);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 11px 14px;
-      font-size: 0.95rem;
-      color: var(--text-main);
-      outline: none;
-    }
-    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+    /* GRÁFICA GASTOS SVG */
+    .chart-container { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 14px; }
+    .chart-donut { position: relative; width: 140px; height: 140px; margin: 0 auto; }
+    .chart-legend { flex: 1; min-width: 220px; list-style: none; }
+    .chart-legend-item { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; font-size: 0.84rem; border-bottom: 1px solid rgba(22, 62, 51, 0.5); }
+    .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+
+    /* PROGRESS BARS */
+    .progress-bar-bg { background: var(--bg-surface-elevated); border-radius: 999px; height: 8px; width: 100%; overflow: hidden; margin-top: 6px; }
+    .progress-bar-fill { background: var(--primary); height: 100%; width: 0%; transition: width 0.3s; }
+
+    /* MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(2, 26, 20, 0.78); backdrop-filter: blur(8px); z-index: 100; justify-content: center; align-items: center; padding: 18px; }
+    .modal-box { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 20px; width: 100%; max-width: 520px; padding: 26px; box-shadow: var(--shadow); max-height: 90vh; overflow-y: auto; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: 0.74rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select { width: 100%; }
     .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
 
     /* TOAST */
-    .toast-container {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 150;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .toast-msg {
-      background: var(--bg-header);
-      color: white;
-      border: 1px solid var(--border-gold);
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      font-size: 0.88rem;
-      font-weight: 700;
-      animation: toastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    @keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 150; display: flex; flex-direction: column; gap: 8px; }
+    .toast-msg { background: var(--bg-header); color: #fff; border: 1px solid var(--border-gold); padding: 12px 18px; border-radius: 10px; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow); animation: toastIn 0.25s ease; }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 768px) {
-      .fin-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .fin-badge { width: 100%; text-align: left; }
-      .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+      .calendar-grid { grid-template-columns: repeat(7, 1fr); gap: 4px; }
+      .cal-day-cell { min-height: 70px; padding: 4px; }
       .form-grid-2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- BARRA SUPERIOR BRAND -->
+  <!-- BARRA DE ENCABEZADO -->
   <header class="top-bar">
     <div class="brand-wrap">
-      <!-- Logotipo Vectorial FHD -->
       <svg class="brand-logo-svg" viewBox="0 0 100 100">
         <defs>
           <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -524,1219 +373,5 @@
         <circle cx="50" cy="74" r="4" fill="url(#goldGrad)"/>
       </svg>
       <div>
-        <div class="brand-title">FHD Finanzas</div>
-        <div class="brand-subtitle">Financial Health Development</div>
-      </div>
-    </div>
-    <div class="top-actions">
-      <!-- Selector de Idioma -->
-      <div class="lang-switcher">
-        <button class="lang-btn active" id="btnLangES" onclick="setLanguage('es')">ES</button>
-        <button class="lang-btn" id="btnLangEN" onclick="setLanguage('en')">EN</button>
-      </div>
-      <button class="btn btn-outline" onclick="toggleTheme()" id="themeBtn" title="Cambiar Tema">🌙</button>
-      <button class="btn btn-outline" onclick="exportData()" title="Descargar Copia JSON" data-i18n="btnBackup">💾 Respaldo</button>
-      <label class="btn btn-outline" style="cursor: pointer;" title="Restaurar Copia JSON">
-        <span data-i18n="btnRestore">📂 Restaurar</span>
-        <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="importData(event)">
-      </label>
-    </div>
-  </header>
-
-  <!-- NAVEGACIÓN PRINCIPAL -->
-  <nav class="nav-bar">
-    <button class="nav-item active" onclick="navigate('tarjetas')"><span data-i18n="tabCards">💳 Tarjetas de Crédito</span></button>
-    <button class="nav-item" onclick="navigate('movimientos')"><span data-i18n="tabCashflow">📊 Movimientos</span></button>
-    <button class="nav-item" onclick="navigate('cuentas')"><span data-i18n="tabAccounts">🏦 Cuentas & Activos</span></button>
-    <button class="nav-item" onclick="navigate('metas')"><span data-i18n="tabGoals">🎯 Metas</span></button>
-    <button class="nav-item" onclick="navigate('calendario')"><span data-i18n="tabCalendar">📅 Calendario</span></button>
-    <button class="nav-item" onclick="navigate('simulador')"><span data-i18n="tabSimulator">📈 Interés Compuesto</span></button>
-  </nav>
-
-  <main>
-    <!-- TAB 1: CONTROL DE TARJETAS DE CRÉDITO -->
-    <section id="pane-tarjetas" class="tab-pane active">
-      <div class="fin-header">
-        <div>
-          <h1 data-i18n="cardsTitle">Control de Tarjetas de Crédito</h1>
-          <p data-i18n="cardsSubtitle">Fechas clave, promociones 0% APR y límites de crédito</p>
-        </div>
-        <div class="fin-badge">
-          <span class="badge-val" id="headerCount">0</span>
-          <span class="badge-lbl" data-i18n="lblTotalCards">Total Tarjetas</span>
-        </div>
-      </div>
-
-      <div class="panel-controls">
-        <div class="search-input-wrap">
-          <input type="text" id="tcSearch" placeholder="Buscar por nombre de tarjeta..." oninput="renderTC()" data-i18n-ph="phSearchCard">
-        </div>
-        <div class="btn-group">
-          <button class="btn btn-outline" onclick="toggleTCView()" id="viewModeBtn" data-i18n="btnCardsView">🗂️ Vista Tarjetas</button>
-          <button class="btn btn-outline" onclick="exportCardsCSV()" data-i18n="btnExportCSV">📄 Exportar CSV</button>
-          <button class="btn btn-primary" onclick="openCardModal()" data-i18n="btnNewCard">+ Nueva Tarjeta</button>
-        </div>
-      </div>
-
-      <!-- VISTA TABLA -->
-      <div class="table-card" id="tcTableView">
-        <table>
-          <thead>
-            <tr>
-              <th class="text-center" style="width: 50px;">#</th>
-              <th data-i18n="thCard">Tarjeta</th>
-              <th class="text-center" data-i18n="thCutDate">Fecha Cierre</th>
-              <th class="text-center" data-i18n="thPayDate">Pago Día</th>
-              <th class="text-center" data-i18n="thPromo">Promoción 0% APR</th>
-              <th class="text-right" data-i18n="thLimit">Límite de Crédito</th>
-              <th class="text-center" style="width: 90px;" data-i18n="thActions">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="tcTbody"></tbody>
-          <tfoot id="tcTfoot" style="display: none;">
-            <tr>
-              <td colspan="5" class="text-right" data-i18n="lblTotalCredit">Límite Total de Crédito:</td>
-              <td class="text-right font-mono" id="tcTotalLimit">$0.00</td>
-              <td></td>
-            </tr>
-          </tfoot>
-        </table>
-        <div class="empty-state-box" id="tcEmpty">
-          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-            <rect width="20" height="14" x="2" y="5" rx="2"/>
-            <line x1="2" x2="22" y1="10" y2="10"/>
-          </svg>
-          <h3 data-i18n="emptyCardsTitle">No hay tarjetas registradas</h3>
-          <p data-i18n="emptyCardsDesc">Comienza agregando tu primera tarjeta con el botón "+ Nueva Tarjeta".</p>
-        </div>
-      </div>
-
-      <!-- VISTA CARDS -->
-      <div class="cards-grid" id="tcCardsView" style="display: none;"></div>
-    </section>
-
-    <!-- TAB 2: MOVIMIENTOS -->
-    <section id="pane-movimientos" class="tab-pane">
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="txTotalIncome">Total Ingresos</div>
-          <div class="sc-val green" id="txIncomeSum">$0.00</div>
-        </div>
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="txTotalExpense">Total Gastos</div>
-          <div class="sc-val red" id="txExpenseSum">$0.00</div>
-        </div>
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="txNetFlow">Flujo Neto</div>
-          <div class="sc-val blue" id="txNetSum">$0.00</div>
-        </div>
-      </div>
-
-      <div class="panel-controls">
-        <div class="search-input-wrap">
-          <input type="text" id="txSearch" placeholder="Buscar por concepto o categoría..." oninput="renderTX()" data-i18n-ph="phSearchTx">
-        </div>
-        <button class="btn btn-primary" onclick="openTxModal()" data-i18n="btnNewTx">+ Nuevo Movimiento</button>
-      </div>
-
-      <div class="table-card">
-        <table>
-          <thead>
-            <tr>
-              <th data-i18n="thDate">Fecha</th>
-              <th data-i18n="thType">Tipo</th>
-              <th data-i18n="thCategory">Categoría</th>
-              <th data-i18n="thDescription">Descripción</th>
-              <th data-i18n="thAccount">Cuenta / Tarjeta</th>
-              <th class="text-right" data-i18n="thAmount">Monto</th>
-              <th class="text-center" style="width: 80px;" data-i18n="thActions">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="txTbody"></tbody>
-        </table>
-        <div class="empty-state-box" id="txEmpty">
-          <h3 data-i18n="emptyTxTitle">No hay movimientos registrados</h3>
-          <p data-i18n="emptyTxDesc">Registra ingresos o gastos para llevar tu control de flujo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 3: CUENTAS & ACTIVOS -->
-    <section id="pane-cuentas" class="tab-pane">
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="accTotalAssets">Total Activos</div>
-          <div class="sc-val green" id="accAssetsSum">$0.00</div>
-        </div>
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="accTotalLiab">Total Pasivos / Deuda</div>
-          <div class="sc-val red" id="accLiabSum">$0.00</div>
-        </div>
-        <div class="stat-card">
-          <div class="sc-title" data-i18n="accNetWorth">Patrimonio Neto (Net Worth)</div>
-          <div class="sc-val blue" id="accNetWorth">$0.00</div>
-        </div>
-      </div>
-
-      <div class="panel-controls">
-        <div class="search-input-wrap">
-          <input type="text" id="accSearch" placeholder="Buscar cuenta o activo..." oninput="renderACC()" data-i18n-ph="phSearchAcc">
-        </div>
-        <button class="btn btn-primary" onclick="openAccModal()" data-i18n="btnNewAcc">+ Agregar Cuenta / Activo</button>
-      </div>
-
-      <div class="table-card">
-        <table>
-          <thead>
-            <tr>
-              <th data-i18n="thAccountName">Cuenta / Activo</th>
-              <th data-i18n="thType">Tipo</th>
-              <th data-i18n="thInstitution">Institución</th>
-              <th class="text-center" data-i18n="thApy">APY / Interés</th>
-              <th class="text-right" data-i18n="thBalance">Saldo Actual</th>
-              <th class="text-center" style="width: 80px;" data-i18n="thActions">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="accTbody"></tbody>
-        </table>
-        <div class="empty-state-box" id="accEmpty">
-          <h3 data-i18n="emptyAccTitle">No hay cuentas o inversiones registradas</h3>
-          <p data-i18n="emptyAccDesc">Añade cuentas bancarias, Webull, préstamos o inmuebles.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 4: METAS -->
-    <section id="pane-metas" class="tab-pane">
-      <div class="panel-controls">
-        <div>
-          <h2 data-i18n="goalsTitle">Metas Financieras</h2>
-          <p style="color: var(--text-muted); font-size: 0.88rem;" data-i18n="goalsSubtitle">Seguimiento de fondos de emergencia y compras</p>
-        </div>
-        <button class="btn btn-primary" onclick="openGoalModal()" data-i18n="btnNewGoal">+ Nueva Meta</button>
-      </div>
-
-      <div class="table-card">
-        <table>
-          <thead>
-            <tr>
-              <th data-i18n="thGoal">Meta</th>
-              <th data-i18n="thCategory">Categoría</th>
-              <th class="text-right" data-i18n="thTarget">Objetivo</th>
-              <th class="text-right" data-i18n="thSaved">Ahorro Actual</th>
-              <th style="min-width: 150px;" data-i18n="thProgress">Progreso</th>
-              <th class="text-center" data-i18n="thDeadline">Fecha Límite</th>
-              <th class="text-center" style="width: 80px;" data-i18n="thActions">Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="goalTbody"></tbody>
-        </table>
-        <div class="empty-state-box" id="goalEmpty">
-          <h3 data-i18n="emptyGoalTitle">No hay metas creadas</h3>
-          <p data-i18n="emptyGoalDesc">Define tus objetivos para visualizarlos de forma automática.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 5: CALENDARIO -->
-    <section id="pane-calendario" class="tab-pane">
-      <div class="fin-header" style="margin-bottom: 18px;">
-        <div>
-          <h1 data-i18n="calTitle">Calendario Financiero Mensual</h1>
-          <p data-i18n="calSubtitle">Días del 1 al 31 con cortes y fechas límite sincronizadas automáticamente</p>
-        </div>
-      </div>
-      <div class="calendar-grid" id="calendarGrid"></div>
-    </section>
-
-    <!-- TAB 6: SIMULADOR INTERÉS COMPUESTO -->
-    <section id="pane-simulador" class="tab-pane">
-      <div class="fin-header" style="margin-bottom: 22px;">
-        <div>
-          <h1 data-i18n="simTitle">Simulador de Interés Compuesto</h1>
-          <p data-i18n="simSubtitle">Proyecta la capitalización de aportes recurrentes en tus inversiones</p>
-        </div>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
-        <div class="stat-card">
-          <div class="form-group">
-            <label data-i18n="lblInitCap">Capital Inicial ($)</label>
-            <input type="number" id="simInit" value="5000" oninput="computeSim()">
-          </div>
-          <div class="form-group">
-            <label data-i18n="lblMonthlyDep">Aporte Mensual ($)</label>
-            <input type="number" id="simMonthly" value="500" oninput="computeSim()">
-          </div>
-          <div class="form-group">
-            <label data-i18n="lblEstApy">Tasa de Rendimiento Anual Estimada (%)</label>
-            <input type="number" step="0.1" id="simApy" value="8.5" oninput="computeSim()">
-          </div>
-          <div class="form-group">
-            <label data-i18n="lblYears">Plazo en Años</label>
-            <input type="number" id="simYears" value="10" oninput="computeSim()">
-          </div>
-        </div>
-
-        <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, var(--bg-card), var(--bg-surface-elevated));">
-          <div class="sc-title" data-i18n="lblProjTotal">Capital Acumulado Proyectado</div>
-          <div class="sc-val green" id="simResultFinal" style="font-size: 2.4rem; margin: 8px 0 16px;">$0.00</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">
-            <span data-i18n="lblOwnDeposits">Aportes Propios Acumulados:</span> <strong id="simResultDeposits" class="font-mono" style="color: var(--text-main);">$0.00</strong>
-          </div>
-          <div style="font-size: 0.9rem; color: var(--text-muted);">
-            <span data-i18n="lblNetInterest">Intereses / Ganancia Neta:</span> <strong id="simResultInterest" class="font-mono" style="color: var(--primary);">$0.00</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- MODAL: TARJETAS DE CRÉDITO -->
-  <div class="modal-overlay" id="cardModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2 id="cardModalTitle" data-i18n="modalNewCardTitle">Nueva Tarjeta</h2>
-        <button class="icon-action-btn" onclick="closeModal('cardModal')">✕</button>
-      </div>
-      <form onsubmit="handleCardSubmit(event)">
-        <input type="hidden" id="cardEditId">
-        <div class="form-group">
-          <label data-i18n="lblCardName">Nombre de la Tarjeta</label>
-          <input type="text" id="cardName" placeholder="Ej. Chase Freedom Unlimited" required>
-        </div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="lblCutDay">Día de Corte (1-31)</label>
-            <input type="number" min="1" max="31" id="cardCut" placeholder="Ej. 16" required>
-          </div>
-          <div class="form-group">
-            <label data-i18n="lblPayDay">Día de Pago (1-31)</label>
-            <input type="number" min="1" max="31" id="cardPay" placeholder="Ej. 13" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-i18n="lblPromoApr">Promoción 0% APR (Fecha o "-")</label>
-          <input type="text" id="cardPromo" placeholder="Ej. 10/22/2026 o -">
-        </div>
-        <div class="form-group">
-          <label data-i18n="lblCreditLimit">Límite de Crédito ($)</label>
-          <input type="text" id="cardLimit" placeholder="Ej. 12000 o Por definir" required>
-        </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-outline" onclick="closeModal('cardModal')" data-i18n="btnCancel">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btnSaveCard">Guardar Tarjeta</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL: MOVIMIENTOS -->
-  <div class="modal-overlay" id="txModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2 data-i18n="modalNewTxTitle">Registrar Movimiento</h2>
-        <button class="icon-action-btn" onclick="closeModal('txModal')">✕</button>
-      </div>
-      <form onsubmit="handleTxSubmit(event)">
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="thDate">Fecha</label>
-            <input type="date" id="txDate" required>
-          </div>
-          <div class="form-group">
-            <label data-i18n="thType">Tipo</label>
-            <select id="txType">
-              <option value="gasto" data-i18n="optExpense">Gasto</option>
-              <option value="ingreso" data-i18n="optIncome">Ingreso</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-i18n="thCategory">Categoría</label>
-          <input type="text" id="txCat" placeholder="Ej. Comida, Servicios, Negocio" required>
-        </div>
-        <div class="form-group">
-          <label data-i18n="thDescription">Descripción / Concepto</label>
-          <input type="text" id="txDesc" placeholder="Detalle de la transacción" required>
-        </div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="thAccount">Cuenta / Medio</label>
-            <input type="text" id="txAcc" placeholder="Ej. Chase Checking">
-          </div>
-          <div class="form-group">
-            <label data-i18n="thAmount">Monto ($)</label>
-            <input type="number" step="0.01" id="txAmount" placeholder="0.00" required>
-          </div>
-        </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-outline" onclick="closeModal('txModal')" data-i18n="btnCancel">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL: CUENTA / ACTIVO -->
-  <div class="modal-overlay" id="accModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2 data-i18n="modalNewAccTitle">Nueva Cuenta / Activo</h2>
-        <button class="icon-action-btn" onclick="closeModal('accModal')">✕</button>
-      </div>
-      <form onsubmit="handleAccSubmit(event)">
-        <div class="form-group">
-          <label data-i18n="thAccountName">Nombre</label>
-          <input type="text" id="accName" placeholder="Ej. Webull Brokerage / Pathfinder" required>
-        </div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="thType">Tipo</label>
-            <select id="accType">
-              <option value="activo" data-i18n="optAsset">Activo (Inversión / Cheques / Cash)</option>
-              <option value="pasivo" data-i18n="optLiability">Pasivo (Préstamo / Deuda)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label data-i18n="thInstitution">Institución</label>
-            <input type="text" id="accInst" placeholder="Ej. Webull, Chase, Lendbuzz">
-          </div>
-        </div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="thApy">APY / Rendimiento (%)</label>
-            <input type="number" step="0.01" id="accApy" placeholder="0.00">
-          </div>
-          <div class="form-group">
-            <label data-i18n="thBalance">Saldo Actual ($)</label>
-            <input type="number" step="0.01" id="accBal" placeholder="0.00" required>
-          </div>
-        </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-outline" onclick="closeModal('accModal')" data-i18n="btnCancel">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- MODAL: META -->
-  <div class="modal-overlay" id="goalModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2 data-i18n="modalNewGoalTitle">Nueva Meta de Ahorro</h2>
-        <button class="icon-action-btn" onclick="closeModal('goalModal')">✕</button>
-      </div>
-      <form onsubmit="handleGoalSubmit(event)">
-        <div class="form-group">
-          <label data-i18n="thGoal">Nombre de la Meta</label>
-          <input type="text" id="goalName" placeholder="Ej. Fondo de Emergencia" required>
-        </div>
-        <div class="form-group">
-          <label data-i18n="thCategory">Categoría</label>
-          <input type="text" id="goalCat" placeholder="Ej. Ahorro, Inversión, Auto">
-        </div>
-        <div class="form-grid-2">
-          <div class="form-group">
-            <label data-i18n="thTarget">Objetivo ($)</label>
-            <input type="number" step="0.01" id="goalTarget" placeholder="10000" required>
-          </div>
-          <div class="form-group">
-            <label data-i18n="thSaved">Ahorrado Actual ($)</label>
-            <input type="number" step="0.01" id="goalCurrent" placeholder="2000" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label data-i18n="thDeadline">Fecha Límite</label>
-          <input type="date" id="goalDeadline">
-        </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-outline" onclick="closeModal('goalModal')" data-i18n="btnCancel">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
-  <!-- TOAST CONTAINER -->
-  <div class="toast-container" id="toastContainer"></div>
-
-  <script>
-    // SISTEMA DE DICCIONARIO BILINGÜE
-    const I18N = {
-      es: {
-        btnBackup: "💾 Respaldo",
-        btnRestore: "📂 Restaurar",
-        tabCards: "💳 Tarjetas de Crédito",
-        tabCashflow: "📊 Movimientos",
-        tabAccounts: "🏦 Cuentas & Activos",
-        tabGoals: "🎯 Metas",
-        tabCalendar: "📅 Calendario",
-        tabSimulator: "📈 Interés Compuesto",
-        cardsTitle: "Control de Tarjetas de Crédito",
-        cardsSubtitle: "Fechas clave, promociones 0% APR y límites de crédito",
-        lblTotalCards: "Total Tarjetas",
-        phSearchCard: "Buscar por nombre de tarjeta...",
-        btnCardsView: "🗂️ Vista Tarjetas",
-        btnTableView: "📋 Vista Tabla",
-        btnExportCSV: "📄 Exportar CSV",
-        btnNewCard: "+ Nueva Tarjeta",
-        thCard: "Tarjeta",
-        thCutDate: "Fecha Cierre",
-        thPayDate: "Pago Día",
-        thPromo: "Promoción 0% APR",
-        thLimit: "Límite de Crédito",
-        thActions: "Acciones",
-        lblTotalCredit: "Límite Total de Crédito:",
-        emptyCardsTitle: "No hay tarjetas registradas",
-        emptyCardsDesc: "Comienza agregando tu primera tarjeta con el botón \"+ Nueva Tarjeta\".",
-        txTotalIncome: "Total Ingresos",
-        txTotalExpense: "Total Gastos",
-        txNetFlow: "Flujo Neto",
-        phSearchTx: "Buscar por concepto o categoría...",
-        btnNewTx: "+ Nuevo Movimiento",
-        thDate: "Fecha",
-        thType: "Tipo",
-        thCategory: "Categoría",
-        thDescription: "Descripción",
-        thAccount: "Cuenta / Tarjeta",
-        thAmount: "Monto",
-        emptyTxTitle: "No hay movimientos registrados",
-        emptyTxDesc: "Registra ingresos o gastos para llevar tu control de flujo.",
-        accTotalAssets: "Total Activos",
-        accTotalLiab: "Total Pasivos / Deuda",
-        accNetWorth: "Patrimonio Neto (Net Worth)",
-        phSearchAcc: "Buscar cuenta o activo...",
-        btnNewAcc: "+ Agregar Cuenta / Activo",
-        thAccountName: "Cuenta / Activo",
-        thInstitution: "Institución",
-        thApy: "APY / Interés",
-        thBalance: "Saldo Actual",
-        emptyAccTitle: "No hay cuentas o inversiones registradas",
-        emptyAccDesc: "Añade cuentas bancarias, Webull, préstamos o inmuebles.",
-        goalsTitle: "Metas Financieras",
-        goalsSubtitle: "Seguimiento de fondos de emergencia y compras",
-        btnNewGoal: "+ Nueva Meta",
-        thGoal: "Meta",
-        thTarget: "Objetivo",
-        thSaved: "Ahorro Actual",
-        thProgress: "Progreso",
-        thDeadline: "Fecha Límite",
-        emptyGoalTitle: "No hay metas creadas",
-        emptyGoalDesc: "Define tus objetivos para visualizarlos de forma automática.",
-        calTitle: "Calendario Financiero Mensual",
-        calSubtitle: "Días del 1 al 31 con cortes y fechas límite sincronizadas automáticamente",
-        simTitle: "Simulador de Interés Compuesto",
-        simSubtitle: "Proyecta la capitalización de aportes recurrentes en tus inversiones",
-        lblInitCap: "Capital Inicial ($)",
-        lblMonthlyDep: "Aporte Mensual ($)",
-        lblEstApy: "Tasa de Rendimiento Anual Estimada (%)",
-        lblYears: "Plazo en Años",
-        lblProjTotal: "Capital Acumulado Proyectado",
-        lblOwnDeposits: "Aportes Propios Acumulados:",
-        lblNetInterest: "Intereses / Ganancia Neta:",
-        modalNewCardTitle: "Nueva Tarjeta",
-        modalEditCardTitle: "Editar Tarjeta",
-        lblCardName: "Nombre de la Tarjeta",
-        lblCutDay: "Día de Corte (1-31)",
-        lblPayDay: "Día de Pago (1-31)",
-        lblPromoApr: "Promoción 0% APR (Fecha o \"-\")",
-        lblCreditLimit: "Límite de Crédito ($)",
-        btnCancel: "Cancelar",
-        btnSaveCard: "Guardar Tarjeta",
-        btnSave: "Guardar",
-        modalNewTxTitle: "Registrar Movimiento",
-        optExpense: "Gasto",
-        optIncome: "Ingreso",
-        modalNewAccTitle: "Nueva Cuenta / Activo",
-        optAsset: "Activo (Inversión / Cheques / Cash)",
-        optLiability: "Pasivo (Préstamo / Deuda)",
-        modalNewGoalTitle: "Nueva Meta de Ahorro",
-        msgCardSaved: "Tarjeta guardada",
-        msgCardDeleted: "Tarjeta eliminada",
-        msgTxSaved: "Movimiento guardado",
-        msgTxDeleted: "Movimiento eliminado",
-        msgAccSaved: "Cuenta agregada",
-        msgAccDeleted: "Cuenta eliminada",
-        msgGoalSaved: "Meta agregada",
-        msgGoalDeleted: "Meta eliminada",
-        msgBackupDownloaded: "Copia descargada",
-        msgDbRestored: "Base de datos restaurada correctamente",
-        msgJsonError: "Archivo JSON no válido",
-        confirmDeleteCard: "¿Deseas eliminar esta tarjeta?",
-        confirmDeleteTx: "¿Eliminar este movimiento?",
-        confirmDeleteAcc: "¿Eliminar esta cuenta?",
-        confirmDeleteGoal: "¿Eliminar esta meta?",
-        lblCut: "Corte",
-        lblPay: "Pago",
-        lblLimit: "Límite",
-        lblUndefined: "Por definir"
-      },
-      en: {
-        btnBackup: "💾 Backup",
-        btnRestore: "📂 Restore",
-        tabCards: "💳 Credit Cards",
-        tabCashflow: "📊 Cashflow",
-        tabAccounts: "🏦 Accounts & Assets",
-        tabGoals: "🎯 Goals",
-        tabCalendar: "📅 Calendar",
-        tabSimulator: "📈 Compound Interest",
-        cardsTitle: "Credit Card Manager",
-        cardsSubtitle: "Closing dates, 0% APR promotions and credit limits",
-        lblTotalCards: "Total Cards",
-        phSearchCard: "Search card name...",
-        btnCardsView: "🗂️ Card View",
-        btnTableView: "📋 Table View",
-        btnExportCSV: "📄 Export CSV",
-        btnNewCard: "+ New Card",
-        thCard: "Card",
-        thCutDate: "Closing Day",
-        thPayDate: "Due Day",
-        thPromo: "0% APR Promo",
-        thLimit: "Credit Limit",
-        thActions: "Actions",
-        lblTotalCredit: "Total Credit Limit:",
-        emptyCardsTitle: "No credit cards found",
-        emptyCardsDesc: "Start by adding your first credit card using the \"+ New Card\" button.",
-        txTotalIncome: "Total Income",
-        txTotalExpense: "Total Expenses",
-        txNetFlow: "Net Cashflow",
-        phSearchTx: "Search by concept or category...",
-        btnNewTx: "+ New Transaction",
-        thDate: "Date",
-        thType: "Type",
-        thCategory: "Category",
-        thDescription: "Description",
-        thAccount: "Account / Card",
-        thAmount: "Amount",
-        emptyTxTitle: "No transactions recorded",
-        emptyTxDesc: "Record incomes or expenses to track your cashflow.",
-        accTotalAssets: "Total Assets",
-        accTotalLiab: "Total Liabilities / Debt",
-        accNetWorth: "Net Worth",
-        phSearchAcc: "Search account or asset...",
-        btnNewAcc: "+ Add Account / Asset",
-        thAccountName: "Account / Asset",
-        thInstitution: "Institution",
-        thApy: "APY / Rate",
-        thBalance: "Current Balance",
-        emptyAccTitle: "No accounts or investments found",
-        emptyAccDesc: "Add bank accounts, Webull, loans, or real estate.",
-        goalsTitle: "Financial Goals",
-        goalsSubtitle: "Track emergency funds and purchase targets",
-        btnNewGoal: "+ New Goal",
-        thGoal: "Goal",
-        thTarget: "Target",
-        thSaved: "Saved Amount",
-        thProgress: "Progress",
-        thDeadline: "Deadline",
-        emptyGoalTitle: "No goals created",
-        emptyGoalDesc: "Set up your objectives to track progress automatically.",
-        calTitle: "Monthly Financial Calendar",
-        calSubtitle: "Days 1 to 31 with closing and due dates automatically synchronized",
-        simTitle: "Compound Interest Simulator",
-        simSubtitle: "Project compound capital growth with periodic deposits",
-        lblInitCap: "Initial Principal ($)",
-        lblMonthlyDep: "Monthly Contribution ($)",
-        lblEstApy: "Estimated Annual Return (%)",
-        lblYears: "Investment Period (Years)",
-        lblProjTotal: "Projected Future Balance",
-        lblOwnDeposits: "Total Principal Deposited:",
-        lblNetInterest: "Net Interest Accrued:",
-        modalNewCardTitle: "New Card",
-        modalEditCardTitle: "Edit Card",
-        lblCardName: "Card Name",
-        lblCutDay: "Closing Day (1-31)",
-        lblPayDay: "Due Day (1-31)",
-        lblPromoApr: "0% APR Promo (Date or \"-\")",
-        lblCreditLimit: "Credit Limit ($)",
-        btnCancel: "Cancel",
-        btnSaveCard: "Save Card",
-        btnSave: "Save",
-        modalNewTxTitle: "Record Transaction",
-        optExpense: "Expense",
-        optIncome: "Income",
-        modalNewAccTitle: "New Account / Asset",
-        optAsset: "Asset (Investments / Checking / Cash)",
-        optLiability: "Liability (Loan / Debt)",
-        modalNewGoalTitle: "New Savings Goal",
-        msgCardSaved: "Card saved",
-        msgCardDeleted: "Card deleted",
-        msgTxSaved: "Transaction saved",
-        msgTxDeleted: "Transaction deleted",
-        msgAccSaved: "Account saved",
-        msgAccDeleted: "Account deleted",
-        msgGoalSaved: "Goal saved",
-        msgGoalDeleted: "Goal deleted",
-        msgBackupDownloaded: "Backup downloaded",
-        msgDbRestored: "Database restored successfully",
-        msgJsonError: "Invalid JSON file",
-        confirmDeleteCard: "Delete this credit card?",
-        confirmDeleteTx: "Delete this transaction?",
-        confirmDeleteAcc: "Delete this account?",
-        confirmDeleteGoal: "Delete this goal?",
-        lblCut: "Cut",
-        lblPay: "Due",
-        lblLimit: "Limit",
-        lblUndefined: "To be defined"
-      }
-    };
-
-    let currentLang = localStorage.getItem("fhd_lang") || "es";
-
-    function setLanguage(lang) {
-      currentLang = lang;
-      localStorage.setItem("fhd_lang", lang);
-      document.getElementById("btnLangES").classList.toggle("active", lang === "es");
-      document.getElementById("btnLangEN").classList.toggle("active", lang === "en");
-      applyTranslations();
-      renderAll();
-    }
-
-    function t(key) {
-      return I18N[currentLang][key] || key;
-    }
-
-    function applyTranslations() {
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const k = el.getAttribute("data-i18n");
-        if (I18N[currentLang][k]) el.textContent = I18N[currentLang][k];
-      });
-      document.querySelectorAll("[data-i18n-ph]").forEach(el => {
-        const k = el.getAttribute("data-i18n-ph");
-        if (I18N[currentLang][k]) el.placeholder = I18N[currentLang][k];
-      });
-    }
-
-    // BASE DE DATOS LOCAL
-    const STORAGE_KEY = "fhd_finanzas_db";
-    let db = {
-      cards: [],
-      transactions: [],
-      accounts: [],
-      goals: []
-    };
-
-    let isCardsViewGrid = false;
-
-    function loadState() {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        try {
-          db = JSON.parse(stored);
-        } catch (e) {
-          console.error(e);
-        }
-      }
-      applyTranslations();
-      renderAll();
-    }
-
-    function saveState() {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
-    }
-
-    function notify(text) {
-      const c = document.getElementById("toastContainer");
-      const el = document.createElement("div");
-      el.className = "toast-msg";
-      el.textContent = text;
-      c.appendChild(el);
-      setTimeout(() => el.remove(), 2800);
-    }
-
-    function formatMoney(val) {
-      if (typeof val === "string" && isNaN(Number(val.replace(/[^0-9.-]+/g, "")))) {
-        return val.toLowerCase().includes("definir") ? t("lblUndefined") : val;
-      }
-      const num = typeof val === "number" ? val : parseFloat(val.toString().replace(/[^0-9.-]+/g, ""));
-      if (isNaN(num)) return t("lblUndefined");
-      return "$" + num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
-
-    // NAVEGACIÓN
-    function navigate(tabId) {
-      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
-      document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
-      document.getElementById(`pane-${tabId}`).classList.add("active");
-      event.currentTarget.classList.add("active");
-
-      if (tabId === "calendario") renderCalendar();
-      if (tabId === "simulador") computeSim();
-    }
-
-    function toggleTheme() {
-      document.body.classList.toggle("light");
-      const isLight = document.body.classList.contains("light");
-      document.getElementById("themeBtn").textContent = isLight ? "☀️" : "🌙";
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = "none";
-    }
-
-    // 1. TARJETAS DE CRÉDITO
-    function toggleTCView() {
-      isCardsViewGrid = !isCardsViewGrid;
-      document.getElementById("tcTableView").style.display = isCardsViewGrid ? "none" : "block";
-      document.getElementById("tcCardsView").style.display = isCardsViewGrid ? "grid" : "none";
-      document.getElementById("viewModeBtn").textContent = isCardsViewGrid ? t("btnTableView") : t("btnCardsView");
-      renderTC();
-    }
-
-    function openCardModal(card = null) {
-      document.getElementById("cardEditId").value = card ? card.id : "";
-      document.getElementById("cardName").value = card ? card.name : "";
-      document.getElementById("cardCut").value = card ? card.cut : "";
-      document.getElementById("cardPay").value = card ? card.pay : "";
-      document.getElementById("cardPromo").value = card ? (card.promo === "-" ? "" : card.promo) : "";
-      document.getElementById("cardLimit").value = card ? card.limit : "";
-      document.getElementById("cardModalTitle").textContent = card ? t("modalEditCardTitle") : t("modalNewCardTitle");
-      document.getElementById("cardModal").style.display = "flex";
-      document.getElementById("cardName").focus();
-    }
-
-    function handleCardSubmit(e) {
-      e.preventDefault();
-      const id = document.getElementById("cardEditId").value;
-      const name = document.getElementById("cardName").value.trim();
-      const cut = parseInt(document.getElementById("cardCut").value, 10);
-      const pay = parseInt(document.getElementById("cardPay").value, 10);
-      const promo = document.getElementById("cardPromo").value.trim() || "-";
-      const rawLimit = document.getElementById("cardLimit").value.trim();
-
-      let limit = rawLimit;
-      const cleanNum = parseFloat(rawLimit.replace(/[^0-9.-]+/g, ""));
-      if (!isNaN(cleanNum) && !rawLimit.toLowerCase().includes("definir") && !rawLimit.toLowerCase().includes("defined")) {
-        limit = cleanNum;
-      }
-
-      if (id) {
-        const item = db.cards.find(c => c.id === id);
-        if (item) Object.assign(item, { name, cut, pay, promo, limit });
-        notify(t("msgCardSaved"));
-      } else {
-        db.cards.push({ id: Date.now().toString(), name, cut, pay, promo, limit });
-        notify(t("msgCardSaved"));
-      }
-
-      saveState();
-      renderTC();
-      closeModal("cardModal");
-    }
-
-    function deleteCard(id) {
-      if (confirm(t("confirmDeleteCard"))) {
-        db.cards = db.cards.filter(c => c.id !== id);
-        saveState();
-        renderTC();
-        notify(t("msgCardDeleted"));
-      }
-    }
-
-    function renderTC() {
-      const q = document.getElementById("tcSearch").value.toLowerCase().trim();
-      const tbody = document.getElementById("tcTbody");
-      const grid = document.getElementById("tcCardsView");
-      const empty = document.getElementById("tcEmpty");
-      const tfoot = document.getElementById("tcTfoot");
-      tbody.innerHTML = "";
-      grid.innerHTML = "";
-
-      const filtered = db.cards.filter(c => c.name.toLowerCase().includes(q));
-      document.getElementById("headerCount").textContent = db.cards.length;
-
-      if (db.cards.length === 0) {
-        empty.style.display = "block";
-        tfoot.style.display = "none";
-        return;
-      }
-
-      empty.style.display = filtered.length === 0 ? "block" : "none";
-      tfoot.style.display = "table-footer-group";
-
-      let totalLimit = 0;
-      filtered.forEach((c, idx) => {
-        let numLim = 0;
-        if (typeof c.limit === "number") numLim = c.limit;
-        else {
-          const parsed = parseFloat(c.limit.toString().replace(/[^0-9.-]+/g, ""));
-          numLim = isNaN(parsed) ? 0 : parsed;
-        }
-        totalLimit += numLim;
-
-        const promoHtml = (c.promo && c.promo !== "-")
-          ? `<span class="badge-promo">${c.promo}</span>`
-          : `<span class="badge-empty">-</span>`;
-
-        // Vista Tabla
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td class="text-center font-mono" style="color:var(--text-muted);">${idx + 1}</td>
-          <td style="font-weight:700;">${c.name}</td>
-          <td class="text-center font-mono">${c.cut}</td>
-          <td class="text-center font-mono">${c.pay}</td>
-          <td class="text-center">${promoHtml}</td>
-          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(c.limit)}</td>
-          <td class="action-icons">
-            <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})' title="Editar">✏️</button>
-            <button class="icon-action-btn" onclick="deleteCard('${c.id}')" title="Eliminar">🗑️</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-
-        // Vista Tarjetas
-        const cardBox = document.createElement("div");
-        cardBox.className = "tc-card-item";
-        cardBox.innerHTML = `
-          <div class="tc-card-top">
-            <div>
-              <span style="font-size:0.7rem; color:var(--gold); font-weight:800;">#${idx + 1}</span>
-              <div class="tc-card-name">${c.name}</div>
-            </div>
-            <div class="tc-chip"></div>
-          </div>
-          <div class="tc-card-mid">
-            <div>
-              <div class="tc-substat">${t("lblCut")}</div>
-              <div class="tc-subval font-mono">Día ${c.cut}</div>
-            </div>
-            <div>
-              <div class="tc-substat">${t("lblPay")}</div>
-              <div class="tc-subval font-mono">Día ${c.pay}</div>
-            </div>
-          </div>
-          <div>
-            <div class="tc-substat">0% APR Promo</div>
-            <div style="margin-top:2px;">${promoHtml}</div>
-          </div>
-          <div class="tc-card-bot">
-            <div>
-              <div class="tc-substat">${t("lblLimit")}</div>
-              <div style="font-size:1.15rem; font-weight:800;" class="font-mono">${formatMoney(c.limit)}</div>
-            </div>
-            <div class="action-icons">
-              <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})'>✏️</button>
-              <button class="icon-action-btn" onclick="deleteCard('${c.id}')">🗑️</button>
-            </div>
-          </div>
-        `;
-        grid.appendChild(cardBox);
-      });
-
-      document.getElementById("tcTotalLimit").textContent = formatMoney(totalLimit);
-    }
-
-    function exportCardsCSV() {
-      if (db.cards.length === 0) return alert(t("emptyCardsTitle"));
-      let csv = "Index,Card,Closing_Date,Payment_Day,Promo_0APR,Credit_Limit\n";
-      db.cards.forEach((c, i) => {
-        csv += `"${i+1}","${c.name}","${c.cut}","${c.pay}","${c.promo}","${c.limit}"\n`;
-      });
-      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = `fhd_cards_${new Date().toISOString().split("T")[0]}.csv`;
-      a.click();
-    }
-
-    // 2. MOVIMIENTOS
-    function openTxModal() {
-      document.getElementById("txDate").value = new Date().toISOString().split("T")[0];
-      document.getElementById("txCat").value = "";
-      document.getElementById("txDesc").value = "";
-      document.getElementById("txAcc").value = "";
-      document.getElementById("txAmount").value = "";
-      document.getElementById("txModal").style.display = "flex";
-    }
-
-    function handleTxSubmit(e) {
-      e.preventDefault();
-      db.transactions.push({
-        id: Date.now().toString(),
-        date: document.getElementById("txDate").value,
-        type: document.getElementById("txType").value,
-        cat: document.getElementById("txCat").value.trim(),
-        desc: document.getElementById("txDesc").value.trim(),
-        acc: document.getElementById("txAcc").value.trim() || "-",
-        amount: parseFloat(document.getElementById("txAmount").value) || 0
-      });
-      saveState();
-      renderTX();
-      closeModal("txModal");
-      notify(t("msgTxSaved"));
-    }
-
-    function deleteTx(id) {
-      if (confirm(t("confirmDeleteTx"))) {
-        db.transactions = db.transactions.filter(t => t.id !== id);
-        saveState();
-        renderTX();
-        notify(t("msgTxDeleted"));
-      }
-    }
-
-    function renderTX() {
-      const q = document.getElementById("txSearch").value.toLowerCase().trim();
-      const tbody = document.getElementById("txTbody");
-      tbody.innerHTML = "";
-
-      let inc = 0, exp = 0;
-      db.transactions.forEach(t => {
-        if (t.type === "ingreso") inc += t.amount;
-        else exp += t.amount;
-      });
-
-      document.getElementById("txIncomeSum").textContent = formatMoney(inc);
-      document.getElementById("txExpenseSum").textContent = formatMoney(exp);
-      document.getElementById("txNetSum").textContent = formatMoney(inc - exp);
-
-      const filtered = db.transactions.filter(t => t.desc.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
-      document.getElementById("txEmpty").style.display = filtered.length === 0 ? "block" : "none";
-
-      filtered.forEach(t => {
-        const isInc = t.type === "ingreso";
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td class="font-mono" style="color:var(--text-muted);">${t.date}</td>
-          <td><span class="badge-promo" style="background:${isInc?'var(--success-bg)':'var(--danger-bg)'}; color:${isInc?'var(--success)':'var(--danger)'};">${isInc ? (currentLang==='es'?'Ingreso':'Income') : (currentLang==='es'?'Gasto':'Expense')}</span></td>
-          <td>${t.cat}</td>
-          <td style="font-weight:600;">${t.desc}</td>
-          <td style="color:var(--text-muted);">${t.acc}</td>
-          <td class="text-right font-mono" style="font-weight:700; color:${isInc?'var(--success)':'var(--danger)'};">
-            ${isInc?'+':'-'}${formatMoney(t.amount)}
-          </td>
-          <td class="text-center">
-            <button class="icon-action-btn" onclick="deleteTx('${t.id}')">🗑️</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // 3. CUENTAS & ACTIVOS
-    function openAccModal() {
-      document.getElementById("accName").value = "";
-      document.getElementById("accInst").value = "";
-      document.getElementById("accApy").value = "";
-      document.getElementById("accBal").value = "";
-      document.getElementById("accModal").style.display = "flex";
-    }
-
-    function handleAccSubmit(e) {
-      e.preventDefault();
-      db.accounts.push({
-        id: Date.now().toString(),
-        name: document.getElementById("accName").value.trim(),
-        type: document.getElementById("accType").value,
-        inst: document.getElementById("accInst").value.trim() || "-",
-        apy: parseFloat(document.getElementById("accApy").value) || 0,
-        balance: parseFloat(document.getElementById("accBal").value) || 0
-      });
-      saveState();
-      renderACC();
-      closeModal("accModal");
-      notify(t("msgAccSaved"));
-    }
-
-    function deleteAcc(id) {
-      if (confirm(t("confirmDeleteAcc"))) {
-        db.accounts = db.accounts.filter(a => a.id !== id);
-        saveState();
-        renderACC();
-        notify(t("msgAccDeleted"));
-      }
-    }
-
-    function renderACC() {
-      const q = document.getElementById("accSearch").value.toLowerCase().trim();
-      const tbody = document.getElementById("accTbody");
-      tbody.innerHTML = "";
-
-      let assets = 0, liab = 0;
-      db.accounts.forEach(a => {
-        if (a.type === "activo") assets += a.balance;
-        else liab += a.balance;
-      });
-
-      document.getElementById("accAssetsSum").textContent = formatMoney(assets);
-      document.getElementById("accLiabSum").textContent = formatMoney(liab);
-      document.getElementById("accNetWorth").textContent = formatMoney(assets - liab);
-
-      const filtered = db.accounts.filter(a => a.name.toLowerCase().includes(q) || a.inst.toLowerCase().includes(q));
-      document.getElementById("accEmpty").style.display = filtered.length === 0 ? "block" : "none";
-
-      filtered.forEach(a => {
-        const isActivo = a.type === "activo";
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td style="font-weight:700;">${a.name}</td>
-          <td><span class="badge-promo" style="background:${isActivo?'var(--success-bg)':'var(--danger-bg)'}; color:${isActivo?'var(--success)':'var(--danger)'};">${isActivo ? (currentLang==='es'?'ACTIVO':'ASSET') : (currentLang==='es'?'PASIVO':'LIABILITY')}</span></td>
-          <td>${a.inst}</td>
-          <td class="text-center font-mono">${a.apy ? a.apy + '%' : '-'}</td>
-          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(a.balance)}</td>
-          <td class="text-center">
-            <button class="icon-action-btn" onclick="deleteAcc('${a.id}')">🗑️</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // 4. METAS
-    function openGoalModal() {
-      document.getElementById("goalName").value = "";
-      document.getElementById("goalCat").value = "";
-      document.getElementById("goalTarget").value = "";
-      document.getElementById("goalCurrent").value = "";
-      document.getElementById("goalDeadline").value = "";
-      document.getElementById("goalModal").style.display = "flex";
-    }
-
-    function handleGoalSubmit(e) {
-      e.preventDefault();
-      db.goals.push({
-        id: Date.now().toString(),
-        name: document.getElementById("goalName").value.trim(),
-        cat: document.getElementById("goalCat").value.trim() || "General",
-        target: parseFloat(document.getElementById("goalTarget").value) || 0,
-        current: parseFloat(document.getElementById("goalCurrent").value) || 0,
-        deadline: document.getElementById("goalDeadline").value || "-"
-      });
-      saveState();
-      renderGoals();
-      closeModal("goalModal");
-      notify(t("msgGoalSaved"));
-    }
-
-    function deleteGoal(id) {
-      if (confirm(t("confirmDeleteGoal"))) {
-        db.goals = db.goals.filter(g => g.id !== id);
-        saveState();
-        renderGoals();
-        notify(t("msgGoalDeleted"));
-      }
-    }
-
-    function renderGoals() {
-      const tbody = document.getElementById("goalTbody");
-      tbody.innerHTML = "";
-      document.getElementById("goalEmpty").style.display = db.goals.length === 0 ? "block" : "none";
-
-      db.goals.forEach(g => {
-        const pct = g.target > 0 ? Math.min(100, Math.round((g.current / g.target) * 100)) : 0;
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td style="font-weight:700;">${g.name}</td>
-          <td>${g.cat}</td>
-          <td class="text-right font-mono">${formatMoney(g.target)}</td>
-          <td class="text-right font-mono" style="font-weight:700; color:var(--primary);">${formatMoney(g.current)}</td>
-          <td>
-            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px; font-weight:700;">
-              <span>${t("thProgress")}</span><span>${pct}%</span>
-            </div>
-            <div style="background:var(--border); height:7px; border-radius:10px; overflow:hidden;">
-              <div style="background:var(--primary); width:${pct}%; height:100%; border-radius:10px;"></div>
-            </div>
-          </td>
-          <td class="text-center font-mono" style="color:var(--text-muted);">${g.deadline}</td>
-          <td class="text-center">
-            <button class="icon-action-btn" onclick="deleteGoal('${g.id}')">🗑️</button>
-          </td>
-        `;
-        tbody.appendChild(tr);
-      });
-    }
-
-    // 5. CALENDARIO
-    function renderCalendar() {
-      const grid = document.getElementById("calendarGrid");
-      grid.innerHTML = "";
-
-      for (let day = 1; day <= 31; day++) {
-        const cell = document.createElement("div");
-        cell.className = "cal-day-cell";
-        cell.innerHTML = `<div class="cal-day-num">${day < 10 ? '0' + day : day}</div>`;
-
-        db.cards.forEach(c => {
-          if (c.cut === day) {
-            cell.innerHTML += `<div class="cal-badge cal-cut" title="${t('lblCut')}: ${c.name}">✂️ ${t('lblCut')}: ${c.name}</div>`;
-          }
-          if (c.pay === day) {
-            cell.innerHTML += `<div class="cal-badge cal-pay" title="${t('lblPay')}: ${c.name}">💳 ${t('lblPay')}: ${c.name}</div>`;
-          }
-        });
-
-        grid.appendChild(cell);
-      }
-    }
-
-    // 6. SIMULADOR
-    function computeSim() {
-      const P = parseFloat(document.getElementById("simInit").value) || 0;
-      const PMT = parseFloat(document.getElementById("simMonthly").value) || 0;
-      const r = (parseFloat(document.getElementById("simApy").value) || 0) / 100 / 12;
-      const n = (parseFloat(document.getElementById("simYears").value) || 0) * 12;
-
-      let balance = P;
-      let deposits = P;
-
-      for (let i = 0; i < n; i++) {
-        balance = balance * (1 + r) + PMT;
-        deposits += PMT;
-      }
-
-      const interest = Math.max(0, balance - deposits);
-      document.getElementById("simResultFinal").textContent = formatMoney(balance);
-      document.getElementById("simResultDeposits").textContent = formatMoney(deposits);
-      document.getElementById("simResultInterest").textContent = formatMoney(interest);
-    }
-
-    // BACKUP & RESTORE
-    function exportData() {
-      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
-      const a = document.createElement("a");
-      a.setAttribute("href", dataStr);
-      a.setAttribute("download", `fhd_finanzas_backup_${new Date().toISOString().split("T")[0]}.json`);
-      a.click();
-      notify(t("msgBackupDownloaded"));
-    }
-
-    function importData(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function(evt) {
-        try {
-          const parsed = JSON.parse(evt.target.result);
-          db = {
-            cards: parsed.cards || [],
-            transactions: parsed.transactions || [],
-            accounts: parsed.accounts || [],
-            goals: parsed.goals || []
-          };
-          saveState();
-          renderAll();
-          notify(t("msgDbRestored"));
-        } catch (err) {
-          alert(t("msgJsonError"));
-        }
-      };
-      reader.readAsText(file);
-    }
-
-    function renderAll() {
-      renderTC();
-      renderTX();
-      renderACC();
-      renderGoals();
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-      setLanguage(currentLang);
-      loadState();
-    });
-  </script>
-</body>
-</html>
+        <div class="brand-title" id="appTitle">FHD Finanzas</div>
+        <div class="brand-subtitle" id="appSubtitle">
