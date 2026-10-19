@@ -1,0 +1,2505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>FHD Finanzas | Financial Health Development</title>
+  
+  <!-- Favicon FHD Oficial Vectorial -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23022c22'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z' fill='url(%23g)' stroke='url(%23gold)' stroke-width='4'/%3E%3Ctext x='50' y='58' font-family='sans-serif' font-size='22' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='1'%3EFHD%3C/text%3E%3Ccircle cx='50' cy='74' r='4' fill='url(%23gold)'/%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23059669'/%3E%3Cstop offset='100%25' stop-color='%23022c22'/%3E%3C/linearGradient%3E%3ClinearGradient id='gold' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23fbbf24'/%3E%3Cstop offset='100%25' stop-color='%23b45309'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z' fill='url(%23g)' stroke='url(%23gold)' stroke-width='4'/%3E%3Ctext x='50' y='58' font-family='sans-serif' font-size='22' font-weight='900' fill='%23ffffff' text-anchor='middle' letter-spacing='1'%3EFHD%3C/text%3E%3Ccircle cx='50' cy='74' r='4' fill='url(%23gold)'/%3E%3C/svg%3E">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #061410;
+      --bg-card: #0b1f1a;
+      --bg-surface-elevated: #102d25;
+      --bg-header: #04100d;
+      --border: #163e33;
+      --border-gold: #b45309;
+      --text-main: #f0fdf4;
+      --text-muted: #86a79d;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --accent-blue: #38bdf8;
+      --success: #10b981;
+      --success-bg: rgba(16, 185, 129, 0.15);
+      --danger: #ef4444;
+      --danger-bg: rgba(239, 68, 68, 0.15);
+      --warning: #f59e0b;
+      --warning-bg: rgba(245, 158, 11, 0.15);
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+      --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    body.light {
+      --bg-body: #f4f8f6;
+      --bg-card: #ffffff;
+      --bg-surface-elevated: #e6f0ec;
+      --bg-header: #082d22;
+      --border: #d1e2db;
+      --border-gold: #d97706;
+      --text-main: #06241a;
+      --text-muted: #4e6b62;
+      --primary: #059669;
+      --primary-hover: #047857;
+      --gold: #d97706;
+      --gold-light: #b45309;
+      --success: #059669;
+      --success-bg: #d1fae5;
+      --danger: #dc2626;
+      --danger-bg: #fee2e2;
+      --warning: #d97706;
+      --warning-bg: #fef3c7;
+      --shadow: 0 10px 25px -5px rgba(6, 36, 26, 0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); }
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.25s, color 0.25s;
+      background-image: radial-gradient(rgba(16, 185, 129, 0.04) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .top-bar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+    }
+    .brand-wrap { display: flex; align-items: center; gap: 14px; }
+    .brand-logo-svg {
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+    }
+    .brand-title {
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, var(--text-main), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-subtitle { font-size: 0.72rem; color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.8px; }
+
+    .top-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .lang-switcher {
+      display: flex;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 2px;
+    }
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .nav-bar {
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow-x: auto;
+      padding: 0 24px;
+      gap: 6px;
+      scrollbar-width: none;
+    }
+    .nav-bar::-webkit-scrollbar { display: none; }
+    .nav-item {
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-item:hover { color: var(--text-main); }
+    .nav-item.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      font-weight: 700;
+    }
+
+    main { flex: 1; padding: 24px; max-width: 1300px; width: 100%; margin: 0 auto; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: tabFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+    @keyframes tabFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .fin-header {
+      background: linear-gradient(135deg, #021a14 0%, #07382c 100%);
+      color: #ffffff;
+      border-radius: 18px;
+      padding: 24px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-gold);
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .fin-header::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: 140px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fin-header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; }
+    .fin-header p { font-size: 0.88rem; color: #a7f3d0; margin-top: 5px; }
+
+    .fin-badge {
+      background: rgba(2, 26, 20, 0.8);
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+      padding: 12px 24px;
+      text-align: center;
+      min-width: 130px;
+    }
+    .fin-badge .badge-val {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+    .fin-badge .badge-lbl {
+      font-size: 0.68rem;
+      color: #a7f3d0;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin-top: 5px;
+      display: block;
+    }
+
+    .month-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .month-nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .month-input-styled {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      outline: none;
+      font-size: 0.9rem;
+      font-family: var(--font-mono);
+    }
+    .month-display-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-main);
+      min-width: 190px;
+    }
+
+    .panel-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .search-input-wrap { flex: 1; min-width: 260px; }
+    .search-input-wrap input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s;
+    }
+    .search-input-wrap input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    }
+
+    .btn-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+    .btn-sm {
+      padding: 7px 12px;
+      font-size: 0.8rem;
+      border-radius: 8px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .btn-outline { background: var(--bg-card); border-color: var(--border); color: var(--text-main); }
+    .btn-outline:hover { background: var(--bg-surface-elevated); }
+
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow-x: auto;
+      box-shadow: var(--shadow);
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem; }
+    thead th {
+      background: rgba(0, 0, 0, 0.15);
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody td {
+      padding: 15px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+    tbody tr:hover { background-color: rgba(16, 185, 129, 0.03); }
+    tbody tr:last-child td { border-bottom: none; }
+    tfoot td {
+      background: rgba(0, 0, 0, 0.15);
+      padding: 16px 20px;
+      font-weight: 800;
+      border-top: 2px solid var(--border);
+    }
+
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .font-mono { font-family: var(--font-mono); }
+
+    .badge-promo {
+      background: var(--success-bg);
+      color: var(--success);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      display: inline-block;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .badge-empty { color: var(--text-muted); font-size: 0.85rem; }
+
+    .action-icons { display: flex; justify-content: center; gap: 6px; }
+    .icon-action-btn {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      transition: background 0.15s;
+    }
+    .icon-action-btn:hover { background: var(--bg-surface-elevated); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .tc-card-item {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-surface-elevated));
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .tc-card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; }
+    .tc-card-name { font-weight: 800; font-size: 1.15rem; }
+    .tc-chip {
+      width: 36px;
+      height: 26px;
+      background: linear-gradient(135deg, #fbbf24, #b45309);
+      border-radius: 6px;
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.4);
+    }
+    .tc-card-mid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .tc-substat { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+    .tc-subval { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
+    .tc-card-bot {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .empty-state-box {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state-box svg { width: 50px; height: 50px; stroke: var(--text-muted); opacity: 0.4; margin-bottom: 14px; }
+    .empty-state-box h3 { font-size: 1.15rem; color: var(--text-main); margin-bottom: 6px; font-weight: 700; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .stat-card .sc-title { font-size: 0.74rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); letter-spacing: 0.6px; margin-bottom: 6px; }
+    .stat-card .sc-val { font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); }
+    .sc-val.green { color: var(--success); }
+    .sc-val.red { color: var(--danger); }
+    .sc-val.blue { color: var(--accent-blue); }
+    .sc-val.gold { color: var(--gold-light); }
+
+    .chart-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .chart-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+    .chart-panel-header h2 { font-size: 1.15rem; font-weight: 800; }
+    .chart-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .chart-donut-wrap {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      flex-shrink: 0;
+    }
+    .chart-donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      pointer-events: none;
+    }
+    .chart-legend-list {
+      flex: 1;
+      min-width: 280px;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+    .chart-legend-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+    }
+    .chart-color-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .cal-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+    }
+    .cal-day-cell {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      min-height: 98px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: transform 0.15s, border-color 0.15s;
+    }
+    .cal-day-cell:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+    .cal-day-cell.other-month {
+      opacity: 0.3;
+      background: rgba(11, 31, 26, 0.4);
+    }
+    .cal-day-cell.today {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px var(--gold) inset;
+    }
+    .cal-day-num {
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cal-badge {
+      font-size: 0.65rem;
+      padding: 3px 6px;
+      border-radius: 6px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+    }
+    .cal-cut { background: var(--warning-bg); color: var(--gold-light); border-left: 3px solid var(--gold); }
+    .cal-pay { background: var(--danger-bg); color: #f87171; border-left: 3px solid var(--danger); }
+    .cal-inc { background: var(--success-bg); color: var(--success); border-left: 3px solid var(--success); }
+    .cal-exp { background: rgba(239, 68, 68, 0.12); color: #fca5a5; border-left: 3px solid var(--danger); }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 26, 20, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 18px;
+    }
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
+    .modal-header h2 { font-size: 1.3rem; font-weight: 800; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.75rem; text-transform: uppercase; font-weight: 800; color: var(--text-muted); margin-bottom: 6px; letter-spacing: 0.5px; }
+    .form-group input, .form-group select {
+      width: 100%;
+      background: var(--bg-body);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+    .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toast-msg {
+      background: var(--bg-header);
+      color: white;
+      border: 1px solid var(--border-gold);
+      padding: 12px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      font-size: 0.88rem;
+      font-weight: 700;
+      animation: toastIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 768px) {
+      .fin-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .fin-badge { width: 100%; text-align: left; }
+      .calendar-weekdays { font-size: 0.65rem; }
+      .cal-day-cell { min-height: 75px; padding: 4px; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+      .month-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+      .chart-body { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA SUPERIOR BRAND -->
+  <header class="top-bar">
+    <div class="brand-wrap">
+      <svg class="brand-logo-svg" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#10b981"/>
+            <stop offset="100%" stop-color="#022c22"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fbbf24"/>
+            <stop offset="100%" stop-color="#b45309"/>
+          </linearGradient>
+        </defs>
+        <path d="M50 5 L88 22 V50 C88 73 50 95 50 95 C50 95 12 73 12 50 V22 Z" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="4"/>
+        <text x="50" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">FHD</text>
+        <circle cx="50" cy="74" r="4" fill="url(#goldGrad)"/>
+      </svg>
+      <div>
+        <div class="brand-title">FHD Finanzas</div>
+        <div class="brand-subtitle">Financial Health Development</div>
+      </div>
+    </div>
+    <div class="top-actions">
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btnLangES" onclick="setLanguage('es')">ES</button>
+        <button class="lang-btn" id="btnLangEN" onclick="setLanguage('en')">EN</button>
+      </div>
+      <button class="btn btn-outline" onclick="toggleTheme()" id="themeBtn" title="Cambiar Tema">🌙</button>
+      <button class="btn btn-outline" onclick="exportData()" title="Descargar Copia JSON" data-i18n="btnBackup">💾 Respaldo</button>
+      <label class="btn btn-outline" style="cursor: pointer;" title="Restaurar Copia JSON">
+        <span data-i18n="btnRestore">📂 Restaurar</span>
+        <input type="file" id="fileImport" accept=".json" style="display: none;" onchange="importData(event)">
+      </label>
+    </div>
+  </header>
+
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <nav class="nav-bar">
+    <button class="nav-item active" onclick="navigate('tarjetas', this)"><span data-i18n="tabCards">💳 Tarjetas de Crédito</span></button>
+    <button class="nav-item" onclick="navigate('movimientos', this)"><span data-i18n="tabCashflow">📊 Movimientos</span></button>
+    <button class="nav-item" onclick="navigate('cuentas', this)"><span data-i18n="tabAccounts">🏦 Cuentas & Activos</span></button>
+    <button class="nav-item" onclick="navigate('metas', this)"><span data-i18n="tabGoals">🎯 Metas</span></button>
+    <button class="nav-item" onclick="navigate('calendario', this)"><span data-i18n="tabCalendar">📅 Calendario</span></button>
+    <button class="nav-item" onclick="navigate('simulador', this)"><span data-i18n="tabSimulator">📈 Interés Compuesto</span></button>
+  </nav>
+
+  <main>
+    <!-- TAB 1: CONTROL DE TARJETAS DE CRÉDITO -->
+    <section id="pane-tarjetas" class="tab-pane active">
+      <div class="fin-header">
+        <div>
+          <h1 data-i18n="cardsTitle">Control de Tarjetas de Crédito</h1>
+          <p data-i18n="cardsSubtitle">Fechas clave, promociones 0% APR y límites de crédito</p>
+        </div>
+        <div class="fin-badge">
+          <span class="badge-val" id="headerCount">0</span>
+          <span class="badge-lbl" data-i18n="lblTotalCards">Total Tarjetas</span>
+        </div>
+      </div>
+
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="tcSearch" placeholder="Buscar por nombre de tarjeta..." oninput="renderTC()" data-i18n-ph="phSearchCard">
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-outline" onclick="toggleTCView()" id="viewModeBtn" data-i18n="btnCardsView">🗂️ Vista Tarjetas</button>
+          <button class="btn btn-outline" onclick="exportCardsCSV()" data-i18n="btnExportCSV">📄 Exportar CSV</button>
+          <button class="btn btn-primary" onclick="openCardModal()" data-i18n="btnNewCard">+ Nueva Tarjeta</button>
+        </div>
+      </div>
+
+      <!-- VISTA TABLA -->
+      <div class="table-card" id="tcTableView">
+        <table>
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 50px;">#</th>
+              <th data-i18n="thCard">Tarjeta</th>
+              <th class="text-center" data-i18n="thCutDate">Fecha Cierre</th>
+              <th class="text-center" data-i18n="thPayDate">Pago Día</th>
+              <th class="text-center" data-i18n="thPromo">Promoción 0% APR</th>
+              <th class="text-right" data-i18n="thLimit">Límite de Crédito</th>
+              <th class="text-center" style="width: 90px;" data-i18n="thActions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tcTbody"></tbody>
+          <tfoot id="tcTfoot" style="display: none;">
+            <tr>
+              <td colspan="5" class="text-right" data-i18n="lblTotalCredit">Límite Total de Crédito:</td>
+              <td class="text-right font-mono" id="tcTotalLimit">$0.00</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="empty-state-box" id="tcEmpty">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <rect width="20" height="14" x="2" y="5" rx="2"/>
+            <line x1="2" x2="22" y1="10" y2="10"/>
+          </svg>
+          <h3 data-i18n="emptyCardsTitle">No hay tarjetas registradas</h3>
+          <p data-i18n="emptyCardsDesc">Comienza agregando tu primera tarjeta con el botón "+ Nueva Tarjeta".</p>
+        </div>
+      </div>
+
+      <!-- VISTA CARDS -->
+      <div class="cards-grid" id="tcCardsView" style="display: none;"></div>
+    </section>
+
+    <!-- TAB 2: MOVIMIENTOS CON CALENDARIO MES CON MES & ROLLOVER & GRÁFICA -->
+    <section id="pane-movimientos" class="tab-pane">
+      <div class="month-bar">
+        <div class="month-nav-controls">
+          <button class="btn btn-outline btn-sm" onclick="changeTxMonth(-1)">◀</button>
+          <button class="btn btn-outline btn-sm" onclick="changeTxMonth(1)">▶</button>
+          <button class="btn btn-outline btn-sm" onclick="resetTxMonthToCurrent()" data-i18n="calToday">Hoy</button>
+          <input type="month" id="txMonthFilter" class="month-input-styled" onchange="onTxMonthInputChange(this.value)">
+        </div>
+        <div class="month-display-title font-mono" id="txCurrentMonthHeading"></div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="txRollover">Remanente Previo (Rollover)</div>
+          <div class="sc-val gold" id="txRolloverSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="txTotalIncome">Ingresos del Mes</div>
+          <div class="sc-val green" id="txIncomeSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="txTotalExpense">Gastos del Mes</div>
+          <div class="sc-val red" id="txExpenseSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="txNetFlow">Balance Neto Disponible</div>
+          <div class="sc-val blue" id="txNetSum">$0.00</div>
+        </div>
+      </div>
+
+      <!-- PANEL GRÁFICA DE PORCENTAJES DE GASTOS -->
+      <div class="chart-panel">
+        <div class="chart-panel-header">
+          <h2 data-i18n="titleExpenseChart">Porcentaje por Clasificación (Gastos del Mes)</h2>
+        </div>
+        <div class="chart-body">
+          <div class="chart-donut-wrap">
+            <svg viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg);" id="donutExpenseSvg">
+              <circle cx="18" cy="18" r="15.9155" fill="transparent" stroke="rgba(255,255,255,0.08)" stroke-width="4.2"></circle>
+            </svg>
+            <div class="chart-donut-center">
+              <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;" data-i18n="lblTotalExpenseChart">Total Gastos</span>
+              <strong style="font-size: 0.88rem; font-family: var(--font-mono); color: var(--text-main);" id="donutTotalExpense">$0.00</strong>
+            </div>
+          </div>
+          <ul class="chart-legend-list" id="expenseChartLegend"></ul>
+        </div>
+      </div>
+
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="txSearch" placeholder="Buscar por concepto o categoría..." oninput="renderTX()" data-i18n-ph="phSearchTx">
+        </div>
+        <button class="btn btn-primary" onclick="openTxModal()" data-i18n="btnNewTx">+ Nuevo Movimiento</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="thDate">Fecha</th>
+              <th data-i18n="thType">Tipo</th>
+              <th data-i18n="thCategory">Categoría</th>
+              <th data-i18n="thDescription">Descripción</th>
+              <th data-i18n="thAccount">Cuenta / Tarjeta</th>
+              <th class="text-right" data-i18n="thAmount">Monto</th>
+              <th class="text-center" style="width: 90px;" data-i18n="thActions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="txTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="txEmpty">
+          <h3 data-i18n="emptyTxTitle">No hay movimientos registrados en este mes</h3>
+          <p data-i18n="emptyTxDesc">Registra ingresos o gastos para llevar tu control de flujo.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CUENTAS & ACTIVOS -->
+    <section id="pane-cuentas" class="tab-pane">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="accTotalAssets">Total Activos</div>
+          <div class="sc-val green" id="accAssetsSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="accTotalLiab">Total Pasivos / Deuda</div>
+          <div class="sc-val red" id="accLiabSum">$0.00</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-title" data-i18n="accNetWorth">Patrimonio Neto (Net Worth)</div>
+          <div class="sc-val blue" id="accNetWorth">$0.00</div>
+        </div>
+      </div>
+
+      <div class="panel-controls">
+        <div class="search-input-wrap">
+          <input type="text" id="accSearch" placeholder="Buscar cuenta o activo..." oninput="renderACC()" data-i18n-ph="phSearchAcc">
+        </div>
+        <button class="btn btn-primary" onclick="openAccModal()" data-i18n="btnNewAcc">+ Agregar Cuenta / Activo</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="thAccountName">Cuenta / Activo</th>
+              <th data-i18n="thType">Tipo</th>
+              <th data-i18n="thInstitution">Institución</th>
+              <th class="text-center" data-i18n="thApy">APY / Interés</th>
+              <th class="text-right" data-i18n="thBalance">Saldo Actual</th>
+              <th class="text-center" style="width: 90px;" data-i18n="thActions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="accTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="accEmpty">
+          <h3 data-i18n="emptyAccTitle">No hay cuentas o inversiones registradas</h3>
+          <p data-i18n="emptyAccDesc">Añade cuentas bancarias, Webull, préstamos o inmuebles.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: METAS (GESTIÓN COMPLETA: MODIFICAR, EDITAR Y SUMAR SALDO) -->
+    <section id="pane-metas" class="tab-pane">
+      <div class="panel-controls">
+        <div>
+          <h2 data-i18n="goalsTitle">Metas Financieras</h2>
+          <p style="color: var(--text-muted); font-size: 0.88rem;" data-i18n="goalsSubtitle">Seguimiento de fondos de emergencia y compras</p>
+        </div>
+        <button class="btn btn-primary" onclick="openGoalModal()" data-i18n="btnNewGoal">+ Nueva Meta</button>
+      </div>
+
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="thGoal">Meta</th>
+              <th data-i18n="thCategory">Categoría</th>
+              <th class="text-right" data-i18n="thTarget">Objetivo</th>
+              <th class="text-right" data-i18n="thSaved">Ahorro Actual</th>
+              <th style="min-width: 150px;" data-i18n="thProgress">Progreso</th>
+              <th class="text-center" data-i18n="thDeadline">Fecha Límite</th>
+              <th class="text-center" style="width: 130px;" data-i18n="thActions">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="goalTbody"></tbody>
+        </table>
+        <div class="empty-state-box" id="goalEmpty">
+          <h3 data-i18n="emptyGoalTitle">No hay metas creadas</h3>
+          <p data-i18n="emptyGoalDesc">Define tus objetivos para visualizarlos de forma automática.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: CALENDARIO -->
+    <section id="pane-calendario" class="tab-pane">
+      <div class="fin-header" style="margin-bottom: 18px;">
+        <div>
+          <h1 data-i18n="calTitle">Calendario Financiero Mensual</h1>
+          <p data-i18n="calSubtitle">Días del mes sincronizados con cortes, pagos y movimientos</p>
+        </div>
+      </div>
+
+      <div class="cal-controls">
+        <div class="btn-group">
+          <button class="btn btn-outline" onclick="changeCalMonth(-1)">◀</button>
+          <button class="btn btn-outline" onclick="changeCalMonth(1)">▶</button>
+          <button class="btn btn-outline" onclick="resetCalToToday()" data-i18n="calToday">Hoy</button>
+        </div>
+        <h2 id="calCurrentMonthTitle" class="font-mono" style="font-size: 1.25rem;"></h2>
+      </div>
+
+      <div class="calendar-weekdays" id="calWeekdaysContainer"></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <!-- TAB 6: SIMULADOR INTERÉS COMPUESTO CON TABLA ANUAL -->
+    <section id="pane-simulador" class="tab-pane">
+      <div class="fin-header" style="margin-bottom: 22px;">
+        <div>
+          <h1 data-i18n="simTitle">Simulador de Interés Compuesto</h1>
+          <p data-i18n="simSubtitle">Proyecta la capitalización de aportes recurrentes en tus inversiones</p>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-bottom: 22px;">
+        <div class="stat-card">
+          <div class="form-group">
+            <label data-i18n="lblInitCap">Capital Inicial ($)</label>
+            <input type="number" id="simInit" value="5000" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblMonthlyDep">Aporte Mensual ($)</label>
+            <input type="number" id="simMonthly" value="500" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblEstApy">Tasa de Rendimiento Anual Estimada (%)</label>
+            <input type="number" step="0.1" id="simApy" value="8.5" oninput="computeSim()">
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblYears">Plazo en Años</label>
+            <input type="number" id="simYears" value="10" oninput="computeSim()">
+          </div>
+        </div>
+
+        <div class="stat-card" style="display: flex; flex-direction: column; justify-content: center; background: linear-gradient(135deg, var(--bg-card), var(--bg-surface-elevated));">
+          <div class="sc-title" data-i18n="lblProjTotal">Capital Acumulado Proyectado</div>
+          <div class="sc-val green" id="simResultFinal" style="font-size: 2.4rem; margin: 8px 0 16px;">$0.00</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px;">
+            <span data-i18n="lblOwnDeposits">Aportes Propios Acumulados:</span> <strong id="simResultDeposits" class="font-mono" style="color: var(--text-main);">$0.00</strong>
+          </div>
+          <div style="font-size: 0.9rem; color: var(--text-muted);">
+            <span data-i18n="lblNetInterest">Intereses / Ganancia Neta:</span> <strong id="simResultInterest" class="font-mono" style="color: var(--primary);">$0.00</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLA DETALLADA AÑO TRAS AÑO -->
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th class="text-center" style="width: 70px;" data-i18n="thSimYear">Año</th>
+              <th class="text-right" data-i18n="thSimDeposits">Aportes Propios</th>
+              <th class="text-right" data-i18n="thSimInterest">Interés Ganado</th>
+              <th class="text-right" data-i18n="thSimBalance">Saldo Final del Año</th>
+            </tr>
+          </thead>
+          <tbody id="simTableTbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL: TARJETAS DE CRÉDITO -->
+  <div class="modal-overlay" id="cardModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="cardModalTitle" data-i18n="modalNewCardTitle">Nueva Tarjeta</h2>
+        <button class="icon-action-btn" onclick="closeModal('cardModal')">✕</button>
+      </div>
+      <form onsubmit="handleCardSubmit(event)">
+        <input type="hidden" id="cardEditId">
+        <div class="form-group">
+          <label data-i18n="lblCardName">Nombre de la Tarjeta</label>
+          <input type="text" id="cardName" placeholder="Ej. Chase Freedom Unlimited" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="lblCutDay">Día de Corte (1-31)</label>
+            <input type="number" min="1" max="31" id="cardCut" placeholder="Ej. 16" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="lblPayDay">Día de Pago (1-31)</label>
+            <input type="number" min="1" max="31" id="cardPay" placeholder="Ej. 13" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="lblPromoApr">Promoción 0% APR (Fecha o "-")</label>
+          <input type="text" id="cardPromo" placeholder="Ej. 10/22/2026 o -">
+        </div>
+        <div class="form-group">
+          <label data-i18n="lblCreditLimit">Límite de Crédito ($)</label>
+          <input type="text" id="cardLimit" placeholder="Ej. 12000 o Por definir" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('cardModal')" data-i18n="btnCancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btnSaveCard">Guardar Tarjeta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: MOVIMIENTOS -->
+  <div class="modal-overlay" id="txModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="txModalTitle" data-i18n="modalNewTxTitle">Registrar Movimiento</h2>
+        <button class="icon-action-btn" onclick="closeModal('txModal')">✕</button>
+      </div>
+      <form onsubmit="handleTxSubmit(event)">
+        <input type="hidden" id="txEditId">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="thDate">Fecha</label>
+            <input type="date" id="txDate" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="thType">Tipo</label>
+            <select id="txType" onchange="updateCategorySelectOptions()">
+              <option value="gasto" data-i18n="optExpense">Gasto (-)</option>
+              <option value="ingreso" data-i18n="optIncome">Ingreso (+)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="thCategory">Categoría</label>
+          <select id="txCatSelect" onchange="onCategorySelectChange()" required></select>
+          <input type="text" id="txCatCustom" placeholder="Especifica la categoría..." style="margin-top: 8px; display: none;">
+        </div>
+        <div class="form-group">
+          <label data-i18n="thDescription">Descripción / Concepto</label>
+          <input type="text" id="txDesc" placeholder="Detalle de la transacción" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="thAccount">Cuenta / Tarjeta</label>
+            <input type="text" id="txAcc" placeholder="Ej. Chase Checking">
+          </div>
+          <div class="form-group">
+            <label data-i18n="thAmount">Monto ($)</label>
+            <input type="number" step="0.01" id="txAmount" placeholder="0.00" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('txModal')" data-i18n="btnCancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CUENTA / ACTIVO -->
+  <div class="modal-overlay" id="accModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="accModalTitle" data-i18n="modalNewAccTitle">Nueva Cuenta / Activo</h2>
+        <button class="icon-action-btn" onclick="closeModal('accModal')">✕</button>
+      </div>
+      <form onsubmit="handleAccSubmit(event)">
+        <input type="hidden" id="accEditId">
+        <div class="form-group">
+          <label data-i18n="thAccountName">Nombre</label>
+          <input type="text" id="accName" placeholder="Ej. Webull Brokerage, Pathfinder" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="thType">Tipo</label>
+            <select id="accType">
+              <option value="activo" data-i18n="optAsset">Activo (Inversión / Cheques / Cash)</option>
+              <option value="pasivo" data-i18n="optLiability">Pasivo (Préstamo / Deuda)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="thInstitution">Institución</label>
+            <input type="text" id="accInst" placeholder="Ej. Webull, Chase, Lendbuzz">
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="thApy">APY / Rendimiento (%)</label>
+            <input type="number" step="0.01" id="accApy" placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label data-i18n="thBalance">Saldo Actual ($)</label>
+            <input type="number" step="0.01" id="accBal" placeholder="0.00" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('accModal')" data-i18n="btnCancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CREAR / EDITAR / MODIFICAR META -->
+  <div class="modal-overlay" id="goalModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="goalModalTitle" data-i18n="modalNewGoalTitle">Nueva Meta de Ahorro</h2>
+        <button class="icon-action-btn" onclick="closeModal('goalModal')">✕</button>
+      </div>
+      <form onsubmit="handleGoalSubmit(event)">
+        <input type="hidden" id="goalEditId">
+        <div class="form-group">
+          <label data-i18n="thGoal">Nombre de la Meta</label>
+          <input type="text" id="goalName" placeholder="Ej. Fondo de Emergencia" required>
+        </div>
+        <div class="form-group">
+          <label data-i18n="thCategory">Categoría</label>
+          <input type="text" id="goalCat" placeholder="Ej. Ahorro, Inversión, Auto">
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label data-i18n="thTarget">Objetivo ($)</label>
+            <input type="number" step="0.01" id="goalTarget" placeholder="10000" required>
+          </div>
+          <div class="form-group">
+            <label data-i18n="thSaved">Ahorro Actual / Modificar Saldo ($)</label>
+            <input type="number" step="0.01" id="goalCurrent" placeholder="2000" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label data-i18n="thDeadline">Fecha Límite</label>
+          <input type="date" id="goalDeadline">
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('goalModal')" data-i18n="btnCancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btnSave">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ABONAR / AGREGAR SALDO A META -->
+  <div class="modal-overlay" id="goalDepositModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 data-i18n="modalDepositTitle">Abonar Saldo a la Meta</h2>
+        <button class="icon-action-btn" onclick="closeModal('goalDepositModal')">✕</button>
+      </div>
+      <form onsubmit="handleGoalDepositSubmit(event)">
+        <input type="hidden" id="depositGoalId">
+        <div class="form-group">
+          <label data-i18n="thGoal">Meta Seleccionada</label>
+          <input type="text" id="depositGoalName" readonly style="opacity: 0.8; cursor: not-allowed;">
+        </div>
+        <div class="form-group">
+          <label data-i18n="lblDepositAmount">Monto a Abonar ($)</label>
+          <input type="number" step="0.01" id="depositAmount" placeholder="Ej. 250.00" required min="0.01">
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="depositDeductTx" checked style="width: auto; margin-right: 6px;">
+            <span data-i18n="lblDeductTx">Registrar y deducir automáticamente como gasto del mes</span>
+          </label>
+        </div>
+        <div class="form-group" id="depositCatGroup">
+          <label data-i18n="thCategory">Clasificación del Gasto</label>
+          <select id="depositDeductCat">
+            <option value="Inversión">Inversión</option>
+            <option value="Gastos Personales">Gastos Personales</option>
+            <option value="Taxes (Impuestos)">Taxes (Impuestos)</option>
+            <option value="Otro Gasto">Otro Gasto</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal('goalDepositModal')" data-i18n="btnCancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-i18n="btnConfirmDeposit">Confirmar Abono</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script>
+    const CHART_PALETTE = [
+      "#ef4444", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", 
+      "#ec4899", "#06b6d4", "#f97316", "#14b8a6", "#a855f7"
+    ];
+
+    const DEFAULT_CATEGORIES = {
+      es: {
+        ingreso: [
+          "Sueldo / Salario",
+          "Negocio / Ventas",
+          "Inversiones / Dividendos",
+          "Freelance / Servicios",
+          "Regalo / Bono",
+          "Otro Ingreso"
+        ],
+        gasto: [
+          "Taxes (Impuestos)",
+          "Vivienda / Renta",
+          "Inversión",
+          "Alimentación / Super",
+          "Gastos Personales",
+          "Negocio / Operación",
+          "Transporte / Gasolina",
+          "Servicios (Luz, Agua, Net)",
+          "Ocio / Entretenimiento",
+          "Otro Gasto"
+        ],
+        customOption: "Otra..."
+      },
+      en: {
+        ingreso: [
+          "Salary / Wages",
+          "Business / Sales",
+          "Investments / Dividends",
+          "Freelance / Services",
+          "Bonus / Gift",
+          "Other Income"
+        ],
+        gasto: [
+          "Taxes",
+          "Housing / Rent",
+          "Investment",
+          "Groceries / Food",
+          "Personal Expenses",
+          "Business / Operations",
+          "Transportation / Gas",
+          "Utilities",
+          "Leisure / Entertainment",
+          "Other Expense"
+        ],
+        customOption: "Other..."
+      }
+    };
+
+    const I18N = {
+      es: {
+        btnBackup: "💾 Respaldo",
+        btnRestore: "📂 Restaurar",
+        tabCards: "💳 Tarjetas de Crédito",
+        tabCashflow: "📊 Movimientos",
+        tabAccounts: "🏦 Cuentas & Activos",
+        tabGoals: "🎯 Metas",
+        tabCalendar: "📅 Calendario",
+        tabSimulator: "📈 Interés Compuesto",
+        cardsTitle: "Control de Tarjetas de Crédito",
+        cardsSubtitle: "Fechas clave, promociones 0% APR y límites de crédito",
+        lblTotalCards: "Total Tarjetas",
+        phSearchCard: "Buscar por nombre de tarjeta...",
+        btnCardsView: "🗂️ Vista Tarjetas",
+        btnTableView: "📋 Vista Tabla",
+        btnExportCSV: "📄 Exportar CSV",
+        btnNewCard: "+ Nueva Tarjeta",
+        thCard: "Tarjeta",
+        thCutDate: "Fecha Cierre",
+        thPayDate: "Pago Día",
+        thPromo: "Promoción 0% APR",
+        thLimit: "Límite de Crédito",
+        thActions: "Acciones",
+        lblTotalCredit: "Límite Total de Crédito:",
+        emptyCardsTitle: "No hay tarjetas registradas",
+        emptyCardsDesc: "Comienza agregando tu primera tarjeta con el botón \"+ Nueva Tarjeta\".",
+        txRollover: "Remanente Previo (Rollover)",
+        txTotalIncome: "Ingresos del Mes",
+        txTotalExpense: "Gastos del Mes",
+        txNetFlow: "Balance Neto Disponible",
+        titleExpenseChart: "Porcentaje por Clasificación (Gastos del Mes)",
+        lblTotalExpenseChart: "Total Gastos",
+        noExpensesChartText: "Sin gastos registrados en este mes para graficar.",
+        phSearchTx: "Buscar por concepto o categoría...",
+        btnNewTx: "+ Nuevo Movimiento",
+        thDate: "Fecha",
+        thType: "Tipo",
+        thCategory: "Categoría",
+        thDescription: "Descripción",
+        thAccount: "Cuenta / Tarjeta",
+        thAmount: "Monto",
+        emptyTxTitle: "No hay movimientos registrados en este mes",
+        emptyTxDesc: "Registra ingresos o gastos para llevar tu control de flujo.",
+        accTotalAssets: "Total Activos",
+        accTotalLiab: "Total Pasivos / Deuda",
+        accNetWorth: "Patrimonio Neto (Net Worth)",
+        phSearchAcc: "Buscar cuenta o activo...",
+        btnNewAcc: "+ Agregar Cuenta / Activo",
+        thAccountName: "Cuenta / Activo",
+        thInstitution: "Institución",
+        thApy: "APY / Interés",
+        thBalance: "Saldo Actual",
+        emptyAccTitle: "No hay cuentas o inversiones registradas",
+        emptyAccDesc: "Añade cuentas bancarias, Webull, préstamos o inmuebles.",
+        goalsTitle: "Metas Financieras",
+        goalsSubtitle: "Seguimiento de fondos de emergencia y compras",
+        btnNewGoal: "+ Nueva Meta",
+        thGoal: "Meta",
+        thTarget: "Objetivo",
+        thSaved: "Ahorro Actual",
+        thProgress: "Progreso",
+        thDeadline: "Fecha Límite",
+        emptyGoalTitle: "No hay metas creadas",
+        emptyGoalDesc: "Define tus objetivos para visualizarlos de forma automática.",
+        calTitle: "Calendario Financiero Mensual",
+        calSubtitle: "Días del mes sincronizados con cortes, pagos y movimientos",
+        calToday: "Hoy",
+        calWeekdays: ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"],
+        calMonths: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+        simTitle: "Simulador de Interés Compuesto",
+        simSubtitle: "Proyecta la capitalización de aportes recurrentes en tus inversiones",
+        lblInitCap: "Capital Inicial ($)",
+        lblMonthlyDep: "Aporte Mensual ($)",
+        lblEstApy: "Tasa de Rendimiento Anual Estimada (%)",
+        lblYears: "Plazo en Años",
+        lblProjTotal: "Capital Acumulado Proyectado",
+        lblOwnDeposits: "Aportes Propios Acumulados:",
+        lblNetInterest: "Intereses / Ganancia Neta:",
+        thSimYear: "Año",
+        thSimDeposits: "Aportes Propios",
+        thSimInterest: "Interés Ganado",
+        thSimBalance: "Saldo Final del Año",
+        modalNewCardTitle: "Nueva Tarjeta",
+        modalEditCardTitle: "Editar Tarjeta",
+        lblCardName: "Nombre de la Tarjeta",
+        lblCutDay: "Día de Corte (1-31)",
+        lblPayDay: "Día de Pago (1-31)",
+        lblPromoApr: "Promoción 0% APR (Fecha o \"-\")",
+        lblCreditLimit: "Límite de Crédito ($)",
+        btnCancel: "Cancelar",
+        btnSaveCard: "Guardar Tarjeta",
+        btnSave: "Guardar",
+        modalNewTxTitle: "Registrar Movimiento",
+        modalEditTxTitle: "Editar Movimiento",
+        optExpense: "Gasto (-)",
+        optIncome: "Ingreso (+)",
+        modalNewAccTitle: "Nueva Cuenta / Activo",
+        modalEditAccTitle: "Editar Cuenta / Activo",
+        optAsset: "Activo (Inversión / Cheques / Cash)",
+        optLiability: "Pasivo (Préstamo / Deuda)",
+        modalNewGoalTitle: "Nueva Meta de Ahorro",
+        modalEditGoalTitle: "Editar Meta / Modificar Saldo",
+        modalDepositTitle: "Abonar Saldo a la Meta",
+        lblDepositAmount: "Monto a Abonar ($)",
+        lblDeductTx: "Registrar y deducir automáticamente como gasto del mes",
+        btnConfirmDeposit: "Confirmar Abono",
+        msgCardSaved: "Tarjeta guardada",
+        msgCardDeleted: "Tarjeta eliminada",
+        msgTxSaved: "Movimiento guardado",
+        msgTxDeleted: "Movimiento eliminado",
+        msgAccSaved: "Cuenta guardada",
+        msgAccDeleted: "Cuenta eliminada",
+        msgGoalSaved: "Meta guardada",
+        msgGoalUpdated: "Meta modificada correctamente",
+        msgGoalDeleted: "Meta eliminada",
+        msgGoalDepositSuccess: "Saldo abonado a la meta con éxito",
+        msgBackupDownloaded: "Copia descargada",
+        msgDbRestored: "Base de datos restaurada correctamente",
+        msgJsonError: "Archivo JSON no válido",
+        confirmDeleteCard: "¿Deseas eliminar esta tarjeta?",
+        confirmDeleteTx: "¿Eliminar este movimiento?",
+        confirmDeleteAcc: "¿Eliminar esta cuenta?",
+        confirmDeleteGoal: "¿Eliminar esta meta?",
+        lblCut: "Corte",
+        lblPay: "Pago",
+        lblLimit: "Límite",
+        lblUndefined: "Por definir"
+      },
+      en: {
+        btnBackup: "💾 Backup",
+        btnRestore: "📂 Restore",
+        tabCards: "💳 Credit Cards",
+        tabCashflow: "📊 Cashflow",
+        tabAccounts: "🏦 Accounts & Assets",
+        tabGoals: "🎯 Goals",
+        tabCalendar: "📅 Calendar",
+        tabSimulator: "📈 Compound Interest",
+        cardsTitle: "Credit Card Manager",
+        cardsSubtitle: "Closing dates, 0% APR promotions and credit limits",
+        lblTotalCards: "Total Cards",
+        phSearchCard: "Search card name...",
+        btnCardsView: "🗂️ Card View",
+        btnTableView: "📋 Table View",
+        btnExportCSV: "📄 Export CSV",
+        btnNewCard: "+ New Card",
+        thCard: "Card",
+        thCutDate: "Closing Day",
+        thPayDate: "Due Day",
+        thPromo: "0% APR Promo",
+        thLimit: "Credit Limit",
+        thActions: "Actions",
+        lblTotalCredit: "Total Credit Limit:",
+        emptyCardsTitle: "No credit cards found",
+        emptyCardsDesc: "Start by adding your first credit card using the \"+ New Card\" button.",
+        txRollover: "Previous Rollover Balance",
+        txTotalIncome: "Month Income",
+        txTotalExpense: "Month Expenses",
+        txNetFlow: "Net Available Balance",
+        titleExpenseChart: "Expense Breakdown Percentage (Month)",
+        lblTotalExpenseChart: "Total Expenses",
+        noExpensesChartText: "No expenses recorded this month for breakdown.",
+        phSearchTx: "Search by concept or category...",
+        btnNewTx: "+ New Transaction",
+        thDate: "Date",
+        thType: "Type",
+        thCategory: "Category",
+        thDescription: "Description",
+        thAccount: "Account / Card",
+        thAmount: "Amount",
+        emptyTxTitle: "No transactions recorded in this month",
+        emptyTxDesc: "Record incomes or expenses to track your cashflow.",
+        accTotalAssets: "Total Assets",
+        accTotalLiab: "Total Liabilities / Debt",
+        accNetWorth: "Net Worth",
+        phSearchAcc: "Search account or asset...",
+        btnNewAcc: "+ Add Account / Asset",
+        thAccountName: "Account / Asset",
+        thInstitution: "Institution",
+        thApy: "APY / Rate",
+        thBalance: "Current Balance",
+        emptyAccTitle: "No accounts or investments found",
+        emptyAccDesc: "Add bank accounts, Webull, loans, or real estate.",
+        goalsTitle: "Financial Goals",
+        goalsSubtitle: "Track emergency funds and purchase targets",
+        btnNewGoal: "+ New Goal",
+        thGoal: "Goal",
+        thTarget: "Target",
+        thSaved: "Saved Amount",
+        thProgress: "Progress",
+        thDeadline: "Deadline",
+        emptyGoalTitle: "No goals created",
+        emptyGoalDesc: "Set up your objectives to track progress automatically.",
+        calTitle: "Monthly Financial Calendar",
+        calSubtitle: "Monthly days synchronized with cuts, dues, and cashflow",
+        calToday: "Today",
+        calWeekdays: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        calMonths: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        simTitle: "Compound Interest Simulator",
+        simSubtitle: "Project compound capital growth with periodic deposits",
+        lblInitCap: "Initial Principal ($)",
+        lblMonthlyDep: "Monthly Contribution ($)",
+        lblEstApy: "Estimated Annual Return (%)",
+        lblYears: "Investment Period (Years)",
+        lblProjTotal: "Projected Future Balance",
+        lblOwnDeposits: "Total Principal Deposited:",
+        lblNetInterest: "Net Interest Accrued:",
+        thSimYear: "Year",
+        thSimDeposits: "Principal Deposited",
+        thSimInterest: "Interest Earned",
+        thSimBalance: "Year End Balance",
+        modalNewCardTitle: "New Card",
+        modalEditCardTitle: "Edit Card",
+        lblCardName: "Card Name",
+        lblCutDay: "Closing Day (1-31)",
+        lblPayDay: "Due Day (1-31)",
+        lblPromoApr: "0% APR Promo (Date or \"-\")",
+        lblCreditLimit: "Credit Limit ($)",
+        btnCancel: "Cancel",
+        btnSaveCard: "Save Card",
+        btnSave: "Save",
+        modalNewTxTitle: "Record Transaction",
+        modalEditTxTitle: "Edit Transaction",
+        optExpense: "Expense (-)",
+        optIncome: "Income (+)",
+        modalNewAccTitle: "New Account / Asset",
+        modalEditAccTitle: "Edit Account / Asset",
+        optAsset: "Asset (Investments / Checking / Cash)",
+        optLiability: "Liability (Loan / Debt)",
+        modalNewGoalTitle: "New Savings Goal",
+        modalEditGoalTitle: "Edit Goal / Modify Balance",
+        modalDepositTitle: "Deposit Funds to Goal",
+        lblDepositAmount: "Deposit Amount ($)",
+        lblDeductTx: "Automatically record and deduct as monthly expense",
+        btnConfirmDeposit: "Confirm Deposit",
+        msgCardSaved: "Card saved",
+        msgCardDeleted: "Card deleted",
+        msgTxSaved: "Transaction saved",
+        msgTxDeleted: "Transaction deleted",
+        msgAccSaved: "Account saved",
+        msgAccDeleted: "Account deleted",
+        msgGoalSaved: "Goal saved",
+        msgGoalUpdated: "Goal updated successfully",
+        msgGoalDeleted: "Goal deleted",
+        msgGoalDepositSuccess: "Funds deposited to goal successfully",
+        msgBackupDownloaded: "Backup downloaded",
+        msgDbRestored: "Database restored successfully",
+        msgJsonError: "Invalid JSON file",
+        confirmDeleteCard: "Delete this credit card?",
+        confirmDeleteTx: "Delete this transaction?",
+        confirmDeleteAcc: "Delete this account?",
+        confirmDeleteGoal: "Delete this goal?",
+        lblCut: "Cut",
+        lblPay: "Due",
+        lblLimit: "Limit",
+        lblUndefined: "To be defined"
+      }
+    };
+
+    let currentLang = localStorage.getItem("fhd_lang") || "es";
+    const initDate = new Date();
+    let currentTxMonthIso = initDate.toISOString().slice(0, 7);
+
+    let calYear = initDate.getFullYear();
+    let calMonth = initDate.getMonth();
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem("fhd_lang", lang);
+      document.getElementById("btnLangES").classList.toggle("active", lang === "es");
+      document.getElementById("btnLangEN").classList.toggle("active", lang === "en");
+      applyTranslations();
+      renderAll();
+      renderCalendar();
+      computeSim();
+      updateCategorySelectOptions();
+    }
+
+    function t(key) {
+      return I18N[currentLang][key] || key;
+    }
+
+    function escapeHtml(str) {
+      if (typeof str !== 'string') return str;
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      })[m]);
+    }
+
+    function applyTranslations() {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const k = el.getAttribute("data-i18n");
+        if (I18N[currentLang][k]) el.textContent = I18N[currentLang][k];
+      });
+      document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+        const k = el.getAttribute("data-i18n-ph");
+        if (I18N[currentLang][k]) el.placeholder = I18N[currentLang][k];
+      });
+    }
+
+    const STORAGE_KEY = "fhd_finanzas_db";
+    let db = {
+      cards: [],
+      transactions: [],
+      accounts: [],
+      goals: []
+    };
+
+    let isCardsViewGrid = false;
+
+    function loadState() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          db = {
+            cards: parsed.cards || [],
+            transactions: parsed.transactions || [],
+            accounts: parsed.accounts || [],
+            goals: parsed.goals || []
+          };
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      db.transactions.forEach(tr => {
+        if (!tr.date) tr.date = new Date().toISOString().slice(0, 10);
+        if (!tr.month) tr.month = tr.date.slice(0, 7);
+      });
+
+      document.getElementById("txMonthFilter").value = currentTxMonthIso;
+      applyTranslations();
+      renderAll();
+      renderCalendar();
+      computeSim();
+      updateCategorySelectOptions();
+    }
+
+    function saveState() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+    }
+
+    function notify(text) {
+      const c = document.getElementById("toastContainer");
+      const el = document.createElement("div");
+      el.className = "toast-msg";
+      el.textContent = text;
+      c.appendChild(el);
+      setTimeout(() => el.remove(), 2800);
+    }
+
+    function formatMoney(val) {
+      if (typeof val === "string" && isNaN(Number(val.replace(/[^0-9.-]+/g, "")))) {
+        return val.toLowerCase().includes("definir") ? t("lblUndefined") : val;
+      }
+      const num = typeof val === "number" ? val : parseFloat(val.toString().replace(/[^0-9.-]+/g, ""));
+      if (isNaN(num)) return t("lblUndefined");
+      return "$" + num.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function navigate(tabId, el) {
+      document.querySelectorAll(".tab-pane").forEach(p => p.classList.remove("active"));
+      document.querySelectorAll(".nav-item").forEach(n => n.classList.remove("active"));
+      document.getElementById(`pane-${tabId}`).classList.add("active");
+      if (el) el.classList.add("active");
+
+      if (tabId === "calendario") renderCalendar();
+      if (tabId === "simulador") computeSim();
+      if (tabId === "movimientos") renderTX();
+      if (tabId === "metas") renderGoals();
+      if (tabId === "cuentas") renderACC();
+      if (tabId === "tarjetas") renderTC();
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light");
+      const isLight = document.body.classList.contains("light");
+      document.getElementById("themeBtn").textContent = isLight ? "☀️" : "🌙";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    function updateTxMonthHeading() {
+      const [y, m] = currentTxMonthIso.split("-").map(Number);
+      const monthName = I18N[currentLang].calMonths[m - 1];
+      document.getElementById("txCurrentMonthHeading").textContent = `${monthName} ${y}`;
+      document.getElementById("txMonthFilter").value = currentTxMonthIso;
+    }
+
+    function changeTxMonth(offset) {
+      const [y, m] = currentTxMonthIso.split("-").map(Number);
+      let targetMonth = m + offset;
+      let targetYear = y;
+
+      if (targetMonth > 12) {
+        targetMonth = 1;
+        targetYear++;
+      } else if (targetMonth < 1) {
+        targetMonth = 12;
+        targetYear--;
+      }
+
+      currentTxMonthIso = `${targetYear}-${String(targetMonth).padStart(2, '0')}`;
+      renderTX();
+    }
+
+    function resetTxMonthToCurrent() {
+      currentTxMonthIso = new Date().toISOString().slice(0, 7);
+      renderTX();
+    }
+
+    function onTxMonthInputChange(val) {
+      if (val) {
+        currentTxMonthIso = val;
+        renderTX();
+      }
+    }
+
+    function updateCategorySelectOptions() {
+      const type = document.getElementById("txType").value;
+      const catSelect = document.getElementById("txCatSelect");
+      const currentCatVal = catSelect.value;
+      catSelect.innerHTML = "";
+
+      const defaults = DEFAULT_CATEGORIES[currentLang][type] || [];
+      defaults.forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        catSelect.appendChild(opt);
+      });
+
+      const customOpt = document.createElement("option");
+      customOpt.value = "__custom__";
+      customOpt.textContent = `➕ ${DEFAULT_CATEGORIES[currentLang].customOption}`;
+      catSelect.appendChild(customOpt);
+
+      if (defaults.includes(currentCatVal)) {
+        catSelect.value = currentCatVal;
+      }
+      onCategorySelectChange();
+    }
+
+    function onCategorySelectChange() {
+      const select = document.getElementById("txCatSelect");
+      const customInput = document.getElementById("txCatCustom");
+      if (select.value === "__custom__") {
+        customInput.style.display = "block";
+        customInput.required = true;
+        customInput.focus();
+      } else {
+        customInput.style.display = "none";
+        customInput.required = false;
+        customInput.value = "";
+      }
+    }
+
+    // 1. TARJETAS DE CRÉDITO
+    function toggleTCView() {
+      isCardsViewGrid = !isCardsViewGrid;
+      document.getElementById("tcTableView").style.display = isCardsViewGrid ? "none" : "block";
+      document.getElementById("tcCardsView").style.display = isCardsViewGrid ? "grid" : "none";
+      document.getElementById("viewModeBtn").textContent = isCardsViewGrid ? t("btnTableView") : t("btnCardsView");
+      renderTC();
+    }
+
+    function openCardModal(card = null) {
+      document.getElementById("cardEditId").value = card ? card.id : "";
+      document.getElementById("cardName").value = card ? card.name : "";
+      document.getElementById("cardCut").value = card ? card.cut : "";
+      document.getElementById("cardPay").value = card ? card.pay : "";
+      document.getElementById("cardPromo").value = card ? (card.promo === "-" ? "" : card.promo) : "";
+      document.getElementById("cardLimit").value = card ? card.limit : "";
+      document.getElementById("cardModalTitle").textContent = card ? t("modalEditCardTitle") : t("modalNewCardTitle");
+      document.getElementById("cardModal").style.display = "flex";
+      document.getElementById("cardName").focus();
+    }
+
+    function handleCardSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("cardEditId").value;
+      const name = document.getElementById("cardName").value.trim();
+      const cut = parseInt(document.getElementById("cardCut").value, 10);
+      const pay = parseInt(document.getElementById("cardPay").value, 10);
+      const promo = document.getElementById("cardPromo").value.trim() || "-";
+      const rawLimit = document.getElementById("cardLimit").value.trim();
+
+      let limit = rawLimit;
+      const cleanNum = parseFloat(rawLimit.replace(/[^0-9.-]+/g, ""));
+      if (!isNaN(cleanNum) && !rawLimit.toLowerCase().includes("definir") && !rawLimit.toLowerCase().includes("defined")) {
+        limit = cleanNum;
+      }
+
+      if (id) {
+        const item = db.cards.find(c => c.id === id);
+        if (item) Object.assign(item, { name, cut, pay, promo, limit });
+        notify(t("msgCardSaved"));
+      } else {
+        db.cards.push({ id: Date.now().toString(), name, cut, pay, promo, limit });
+        notify(t("msgCardSaved"));
+      }
+
+      saveState();
+      renderTC();
+      renderCalendar();
+      closeModal("cardModal");
+    }
+
+    function deleteCard(id) {
+      if (confirm(t("confirmDeleteCard"))) {
+        db.cards = db.cards.filter(c => c.id !== id);
+        saveState();
+        renderTC();
+        renderCalendar();
+        notify(t("msgCardDeleted"));
+      }
+    }
+
+    function renderTC() {
+      const q = document.getElementById("tcSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("tcTbody");
+      const grid = document.getElementById("tcCardsView");
+      const empty = document.getElementById("tcEmpty");
+      const tfoot = document.getElementById("tcTfoot");
+      tbody.innerHTML = "";
+      grid.innerHTML = "";
+
+      const filtered = db.cards.filter(c => c.name.toLowerCase().includes(q));
+      document.getElementById("headerCount").textContent = db.cards.length;
+
+      if (db.cards.length === 0) {
+        empty.style.display = "block";
+        tfoot.style.display = "none";
+        return;
+      }
+
+      empty.style.display = filtered.length === 0 ? "block" : "none";
+      tfoot.style.display = "table-footer-group";
+
+      let totalLimit = 0;
+      filtered.forEach((c, idx) => {
+        let numLim = 0;
+        if (typeof c.limit === "number") numLim = c.limit;
+        else {
+          const parsed = parseFloat(c.limit.toString().replace(/[^0-9.-]+/g, ""));
+          numLim = isNaN(parsed) ? 0 : parsed;
+        }
+        totalLimit += numLim;
+
+        const promoHtml = (c.promo && c.promo !== "-")
+          ? `<span class="badge-promo">${escapeHtml(c.promo)}</span>`
+          : `<span class="badge-empty">-</span>`;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="text-center font-mono" style="color:var(--text-muted);">${idx + 1}</td>
+          <td style="font-weight:700;">${escapeHtml(c.name)}</td>
+          <td class="text-center font-mono">${c.cut}</td>
+          <td class="text-center font-mono">${c.pay}</td>
+          <td class="text-center">${promoHtml}</td>
+          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(c.limit)}</td>
+          <td class="action-icons">
+            <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})' title="Editar">✏️</button>
+            <button class="icon-action-btn" onclick="deleteCard('${c.id}')" title="Eliminar">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+
+        const cardBox = document.createElement("div");
+        cardBox.className = "tc-card-item";
+        cardBox.innerHTML = `
+          <div class="tc-card-top">
+            <div>
+              <span style="font-size:0.7rem; color:var(--gold); font-weight:800;">#${idx + 1}</span>
+              <div class="tc-card-name">${escapeHtml(c.name)}</div>
+            </div>
+            <div class="tc-chip"></div>
+          </div>
+          <div class="tc-card-mid">
+            <div>
+              <div class="tc-substat">${t("lblCut")}</div>
+              <div class="tc-subval font-mono">Día ${c.cut}</div>
+            </div>
+            <div>
+              <div class="tc-substat">${t("lblPay")}</div>
+              <div class="tc-subval font-mono">Día ${c.pay}</div>
+            </div>
+          </div>
+          <div>
+            <div class="tc-substat">0% APR Promo</div>
+            <div style="margin-top:2px;">${promoHtml}</div>
+          </div>
+          <div class="tc-card-bot">
+            <div>
+              <div class="tc-substat">${t("lblLimit")}</div>
+              <div style="font-size:1.15rem; font-weight:800;" class="font-mono">${formatMoney(c.limit)}</div>
+            </div>
+            <div class="action-icons">
+              <button class="icon-action-btn" onclick='openCardModal(${JSON.stringify(c)})'>✏️</button>
+              <button class="icon-action-btn" onclick="deleteCard('${c.id}')">🗑️</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(cardBox);
+      });
+
+      document.getElementById("tcTotalLimit").textContent = formatMoney(totalLimit);
+    }
+
+    function exportCardsCSV() {
+      if (db.cards.length === 0) return alert(t("emptyCardsTitle"));
+      let csv = "Index,Card,Closing_Date,Payment_Day,Promo_0APR,Credit_Limit\n";
+      db.cards.forEach((c, i) => {
+        csv += `"${i+1}","${c.name.replace(/"/g, '""')}","${c.cut}","${c.pay}","${c.promo}","${c.limit}"\n`;
+      });
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `fhd_cards_${new Date().toISOString().split("T")[0]}.csv`;
+      a.click();
+    }
+
+    // 2. MOVIMIENTOS
+    function openTxModal(tx = null) {
+      const todayIso = new Date().toISOString().slice(0, 10);
+      document.getElementById("txEditId").value = tx ? tx.id : "";
+      document.getElementById("txDate").value = tx ? tx.date : (todayIso.startsWith(currentTxMonthIso) ? todayIso : `${currentTxMonthIso}-01`);
+      document.getElementById("txType").value = tx ? tx.type : "gasto";
+      updateCategorySelectOptions();
+
+      if (tx) {
+        const catSelect = document.getElementById("txCatSelect");
+        const availableOptions = Array.from(catSelect.options).map(o => o.value);
+        if (availableOptions.includes(tx.cat)) {
+          catSelect.value = tx.cat;
+        } else {
+          catSelect.value = "__custom__";
+          document.getElementById("txCatCustom").value = tx.cat;
+        }
+      }
+
+      onCategorySelectChange();
+      document.getElementById("txDesc").value = tx ? tx.desc : "";
+      document.getElementById("txAcc").value = tx ? (tx.acc === "-" ? "" : tx.acc) : "";
+      document.getElementById("txAmount").value = tx ? tx.amount : "";
+      document.getElementById("txModalTitle").textContent = tx ? t("modalEditTxTitle") : t("modalNewTxTitle");
+      document.getElementById("txModal").style.display = "flex";
+      document.getElementById("txDesc").focus();
+    }
+
+    function handleTxSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("txEditId").value;
+      const dateVal = document.getElementById("txDate").value;
+      const monthVal = dateVal.slice(0, 7);
+
+      const catSelectVal = document.getElementById("txCatSelect").value;
+      const catVal = catSelectVal === "__custom__" 
+        ? document.getElementById("txCatCustom").value.trim() 
+        : catSelectVal;
+
+      const payload = {
+        date: dateVal,
+        month: monthVal,
+        type: document.getElementById("txType").value,
+        cat: catVal || "General",
+        desc: document.getElementById("txDesc").value.trim(),
+        acc: document.getElementById("txAcc").value.trim() || "-",
+        amount: parseFloat(document.getElementById("txAmount").value) || 0
+      };
+
+      if (id) {
+        const item = db.transactions.find(t => t.id === id);
+        if (item) Object.assign(item, payload);
+      } else {
+        db.transactions.push(Object.assign({ id: Date.now().toString() }, payload));
+      }
+
+      currentTxMonthIso = monthVal;
+      saveState();
+      renderTX();
+      renderCalendar();
+      closeModal("txModal");
+      notify(t("msgTxSaved"));
+    }
+
+    function deleteTx(id) {
+      if (confirm(t("confirmDeleteTx"))) {
+        db.transactions = db.transactions.filter(t => t.id !== id);
+        saveState();
+        renderTX();
+        renderCalendar();
+        notify(t("msgTxDeleted"));
+      }
+    }
+
+    function renderExpensePercentageChart(expensesList) {
+      const svg = document.getElementById("donutExpenseSvg");
+      const legend = document.getElementById("expenseChartLegend");
+      const totalDisplay = document.getElementById("donutTotalExpense");
+
+      legend.innerHTML = "";
+      while (svg.children.length > 1) {
+        svg.removeChild(svg.lastChild);
+      }
+
+      let totalExpenses = 0;
+      const categoryMap = {};
+
+      expensesList.forEach(t => {
+        const cat = t.cat || "Otros Gastos";
+        const amt = Number(t.amount) || 0;
+        categoryMap[cat] = (categoryMap[cat] || 0) + amt;
+        totalExpenses += amt;
+      });
+
+      totalDisplay.textContent = formatMoney(totalExpenses);
+
+      if (totalExpenses === 0) {
+        legend.innerHTML = `<li style="color:var(--text-muted); font-size:0.85rem; padding:10px;">${t("noExpensesChartText")}</li>`;
+        return;
+      }
+
+      let cumulativePercent = 0;
+      let colorIndex = 0;
+
+      Object.entries(categoryMap).forEach(([catName, amt]) => {
+        const pct = (amt / totalExpenses) * 100;
+        const color = CHART_PALETTE[colorIndex % CHART_PALETTE.length];
+        colorIndex++;
+
+        const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", "18");
+        circle.setAttribute("cy", "18");
+        circle.setAttribute("r", "15.9155");
+        circle.setAttribute("fill", "transparent");
+        circle.setAttribute("stroke", color);
+        circle.setAttribute("stroke-width", "4.2");
+        circle.setAttribute("stroke-dasharray", `${pct} ${100 - pct}`);
+        circle.setAttribute("stroke-dashoffset", `-${cumulativePercent}`);
+        svg.appendChild(circle);
+
+        cumulativePercent += pct;
+
+        const li = document.createElement("li");
+        li.className = "chart-legend-item";
+        li.innerHTML = `
+          <div style="display:flex; align-items:center; overflow:hidden;">
+            <span class="chart-color-dot" style="background-color: ${color};"></span>
+            <span style="font-weight:700; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;" title="${escapeHtml(catName)}">${escapeHtml(catName)}</span>
+          </div>
+          <div style="text-align:right; margin-left:10px; flex-shrink:0;">
+            <span style="font-weight:800; font-family:var(--font-mono);">${pct.toFixed(1)}%</span>
+            <span style="font-size:0.75rem; color:var(--text-muted); display:block;">${formatMoney(amt)}</span>
+          </div>
+        `;
+        legend.appendChild(li);
+      });
+    }
+
+    function renderTX() {
+      updateTxMonthHeading();
+
+      const q = document.getElementById("txSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("txTbody");
+      tbody.innerHTML = "";
+
+      let rolloverBalance = 0;
+      let monthIncome = 0;
+      let monthExpense = 0;
+      const monthExpensesForChart = [];
+
+      db.transactions.forEach(t => {
+        const txMonth = t.month || (t.date ? t.date.slice(0, 7) : "");
+        const amt = Number(t.amount) || 0;
+
+        if (txMonth < currentTxMonthIso) {
+          if (t.type === "ingreso") rolloverBalance += amt;
+          else rolloverBalance -= amt;
+        } else if (txMonth === currentTxMonthIso) {
+          if (t.type === "ingreso") {
+            monthIncome += amt;
+          } else {
+            monthExpense += amt;
+            monthExpensesForChart.push(t);
+          }
+        }
+      });
+
+      const netAvailable = rolloverBalance + monthIncome - monthExpense;
+
+      document.getElementById("txRolloverSum").textContent = formatMoney(rolloverBalance);
+      document.getElementById("txIncomeSum").textContent = formatMoney(monthIncome);
+      document.getElementById("txExpenseSum").textContent = formatMoney(monthExpense);
+      
+      const netEl = document.getElementById("txNetSum");
+      netEl.textContent = formatMoney(netAvailable);
+      netEl.className = "sc-val " + (netAvailable >= 0 ? "blue" : "red");
+
+      renderExpensePercentageChart(monthExpensesForChart);
+
+      const filtered = db.transactions.filter(t => {
+        const txMonth = t.month || (t.date ? t.date.slice(0, 7) : "");
+        if (txMonth !== currentTxMonthIso) return false;
+        return t.desc.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q) || (t.acc && t.acc.toLowerCase().includes(q));
+      });
+
+      document.getElementById("txEmpty").style.display = filtered.length === 0 ? "block" : "none";
+
+      filtered.slice().reverse().forEach(t => {
+        const isInc = t.type === "ingreso";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="font-mono" style="color:var(--text-muted);">${escapeHtml(t.date)}</td>
+          <td><span class="badge-promo" style="background:${isInc?'var(--success-bg)':'var(--danger-bg)'}; color:${isInc?'var(--success)':'var(--danger)'};">${isInc ? (currentLang==='es'?'Ingreso':'Income') : (currentLang==='es'?'Gasto':'Expense')}</span></td>
+          <td>${escapeHtml(t.cat)}</td>
+          <td style="font-weight:600;">${escapeHtml(t.desc)}</td>
+          <td style="color:var(--text-muted);">${escapeHtml(t.acc)}</td>
+          <td class="text-right font-mono" style="font-weight:700; color:${isInc?'var(--success)':'var(--danger)'};">
+            ${isInc?'+':'-'}${formatMoney(t.amount)}
+          </td>
+          <td class="action-icons">
+            <button class="icon-action-btn" onclick='openTxModal(${JSON.stringify(t)})' title="Editar">✏️</button>
+            <button class="icon-action-btn" onclick="deleteTx('${t.id}')" title="Eliminar">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 3. CUENTAS & ACTIVOS
+    function openAccModal(acc = null) {
+      document.getElementById("accEditId").value = acc ? acc.id : "";
+      document.getElementById("accName").value = acc ? acc.name : "";
+      document.getElementById("accType").value = acc ? acc.type : "activo";
+      document.getElementById("accInst").value = acc ? (acc.inst === "-" ? "" : acc.inst) : "";
+      document.getElementById("accApy").value = acc && acc.apy ? acc.apy : "";
+      document.getElementById("accBal").value = acc ? acc.balance : "";
+      document.getElementById("accModalTitle").textContent = acc ? t("modalEditAccTitle") : t("modalNewAccTitle");
+      document.getElementById("accModal").style.display = "flex";
+      document.getElementById("accName").focus();
+    }
+
+    function handleAccSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("accEditId").value;
+      const payload = {
+        name: document.getElementById("accName").value.trim(),
+        type: document.getElementById("accType").value,
+        inst: document.getElementById("accInst").value.trim() || "-",
+        apy: parseFloat(document.getElementById("accApy").value) || 0,
+        balance: parseFloat(document.getElementById("accBal").value) || 0
+      };
+
+      if (id) {
+        const item = db.accounts.find(a => a.id === id);
+        if (item) Object.assign(item, payload);
+      } else {
+        db.accounts.push(Object.assign({ id: Date.now().toString() }, payload));
+      }
+
+      saveState();
+      renderACC();
+      closeModal("accModal");
+      notify(t("msgAccSaved"));
+    }
+
+    function deleteAcc(id) {
+      if (confirm(t("confirmDeleteAcc"))) {
+        db.accounts = db.accounts.filter(a => a.id !== id);
+        saveState();
+        renderACC();
+        notify(t("msgAccDeleted"));
+      }
+    }
+
+    function renderACC() {
+      const q = document.getElementById("accSearch").value.toLowerCase().trim();
+      const tbody = document.getElementById("accTbody");
+      tbody.innerHTML = "";
+
+      let assets = 0, liab = 0;
+      db.accounts.forEach(a => {
+        if (a.type === "activo") assets += a.balance;
+        else liab += a.balance;
+      });
+
+      document.getElementById("accAssetsSum").textContent = formatMoney(assets);
+      document.getElementById("accLiabSum").textContent = formatMoney(liab);
+      document.getElementById("accNetWorth").textContent = formatMoney(assets - liab);
+
+      const filtered = db.accounts.filter(a => a.name.toLowerCase().includes(q) || a.inst.toLowerCase().includes(q));
+      document.getElementById("accEmpty").style.display = filtered.length === 0 ? "block" : "none";
+
+      filtered.forEach(a => {
+        const isActivo = a.type === "activo";
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="font-weight:700;">${escapeHtml(a.name)}</td>
+          <td><span class="badge-promo" style="background:${isActivo?'var(--success-bg)':'var(--danger-bg)'}; color:${isActivo?'var(--success)':'var(--danger)'};">${isActivo ? (currentLang==='es'?'ACTIVO':'ASSET') : (currentLang==='es'?'PASIVO':'LIABILITY')}</span></td>
+          <td>${escapeHtml(a.inst)}</td>
+          <td class="text-center font-mono">${a.apy ? a.apy + '%' : '-'}</td>
+          <td class="text-right font-mono" style="font-weight:700;">${formatMoney(a.balance)}</td>
+          <td class="action-icons">
+            <button class="icon-action-btn" onclick='openAccModal(${JSON.stringify(a)})' title="Editar">✏️</button>
+            <button class="icon-action-btn" onclick="deleteAcc('${a.id}')" title="Eliminar">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 4. METAS (CREAR, EDITAR, MODIFICAR Y ABONAR SALDO)
+    function openGoalModal(goal = null) {
+      document.getElementById("goalEditId").value = goal ? goal.id : "";
+      document.getElementById("goalName").value = goal ? goal.name : "";
+      document.getElementById("goalCat").value = goal ? (goal.cat === "General" ? "" : goal.cat) : "";
+      document.getElementById("goalTarget").value = goal ? goal.target : "";
+      document.getElementById("goalCurrent").value = goal ? goal.current : "";
+      document.getElementById("goalDeadline").value = goal && goal.deadline !== "-" ? goal.deadline : "";
+      
+      document.getElementById("goalModalTitle").textContent = goal ? t("modalEditGoalTitle") : t("modalNewGoalTitle");
+      document.getElementById("goalModal").style.display = "flex";
+      document.getElementById("goalName").focus();
+    }
+
+    function handleGoalSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById("goalEditId").value;
+      const name = document.getElementById("goalName").value.trim();
+      const cat = document.getElementById("goalCat").value.trim() || "General";
+      const target = parseFloat(document.getElementById("goalTarget").value) || 0;
+      const current = parseFloat(document.getElementById("goalCurrent").value) || 0;
+      const deadline = document.getElementById("goalDeadline").value || "-";
+
+      if (id) {
+        const item = db.goals.find(g => g.id === id);
+        if (item) {
+          Object.assign(item, { name, cat, target, current, deadline });
+          notify(t("msgGoalUpdated"));
+        }
+      } else {
+        db.goals.push({
+          id: Date.now().toString(),
+          name,
+          cat,
+          target,
+          current,
+          deadline
+        });
+        notify(t("msgGoalSaved"));
+      }
+
+      saveState();
+      renderGoals();
+      closeModal("goalModal");
+    }
+
+    function openGoalDepositModal(goalId) {
+      const goal = db.goals.find(g => g.id === goalId);
+      if (!goal) return;
+
+      document.getElementById("depositGoalId").value = goal.id;
+      document.getElementById("depositGoalName").value = `${goal.name} (Actual: ${formatMoney(goal.current)} / Meta: ${formatMoney(goal.target)})`;
+      document.getElementById("depositAmount").value = "";
+      document.getElementById("depositDeductTx").checked = true;
+      document.getElementById("goalDepositModal").style.display = "flex";
+      document.getElementById("depositAmount").focus();
+    }
+
+    function handleGoalDepositSubmit(e) {
+      e.preventDefault();
+      const goalId = document.getElementById("depositGoalId").value;
+      const amount = parseFloat(document.getElementById("depositAmount").value) || 0;
+      const deductTx = document.getElementById("depositDeductTx").checked;
+      const deductCat = document.getElementById("depositDeductCat").value;
+
+      if (amount <= 0) return;
+
+      const goal = db.goals.find(g => g.id === goalId);
+      if (goal) {
+        goal.current = (Number(goal.current) || 0) + amount;
+
+        if (deductTx) {
+          const todayIso = new Date().toISOString().slice(0, 10);
+          db.transactions.push({
+            id: Date.now().toString(),
+            date: todayIso,
+            month: todayIso.slice(0, 7),
+            type: "gasto",
+            cat: deductCat,
+            desc: `${currentLang === 'es' ? 'Aporte a meta' : 'Goal deposit'}: ${goal.name}`,
+            acc: "Ahorro",
+            amount: amount
+          });
+          renderTX();
+          renderCalendar();
+        }
+
+        saveState();
+        renderGoals();
+        closeModal("goalDepositModal");
+        notify(t("msgGoalDepositSuccess"));
+      }
+    }
+
+    function deleteGoal(id) {
+      if (confirm(t("confirmDeleteGoal"))) {
+        db.goals = db.goals.filter(g => g.id !== id);
+        saveState();
+        renderGoals();
+        notify(t("msgGoalDeleted"));
+      }
+    }
+
+    function renderGoals() {
+      const tbody = document.getElementById("goalTbody");
+      tbody.innerHTML = "";
+      document.getElementById("goalEmpty").style.display = db.goals.length === 0 ? "block" : "none";
+
+      db.goals.forEach(g => {
+        const pct = g.target > 0 ? Math.min(100, Math.round((g.current / g.target) * 100)) : 0;
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td style="font-weight:700;">${escapeHtml(g.name)}</td>
+          <td>${escapeHtml(g.cat)}</td>
+          <td class="text-right font-mono">${formatMoney(g.target)}</td>
+          <td class="text-right font-mono" style="font-weight:700; color:var(--primary);">${formatMoney(g.current)}</td>
+          <td>
+            <div style="display:flex; justify-content:space-between; font-size:0.75rem; margin-bottom:4px; font-weight:700;">
+              <span>${t("thProgress")}</span><span>${pct}%</span>
+            </div>
+            <div style="background:var(--border); height:7px; border-radius:10px; overflow:hidden;">
+              <div style="background:var(--primary); width:${pct}%; height:100%; border-radius:10px;"></div>
+            </div>
+          </td>
+          <td class="text-center font-mono" style="color:var(--text-muted);">${escapeHtml(g.deadline)}</td>
+          <td class="action-icons">
+            <button class="icon-action-btn" onclick='openGoalDepositModal("${g.id}")' title="Abonar saldo">💵</button>
+            <button class="icon-action-btn" onclick='openGoalModal(${JSON.stringify(g)})' title="Modificar / Editar">✏️</button>
+            <button class="icon-action-btn" onclick="deleteGoal('${g.id}')" title="Eliminar">🗑️</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // 5. CALENDARIO SINCRONIZADO
+    function changeCalMonth(step) {
+      calMonth += step;
+      if (calMonth < 0) {
+        calMonth = 11;
+        calYear--;
+      } else if (calMonth > 11) {
+        calMonth = 0;
+        calYear++;
+      }
+      renderCalendar();
+    }
+
+    function resetCalToToday() {
+      const d = new Date();
+      calYear = d.getFullYear();
+      calMonth = d.getMonth();
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      const titleEl = document.getElementById("calCurrentMonthTitle");
+      if (titleEl) {
+        titleEl.textContent = `${I18N[currentLang].calMonths[calMonth]} ${calYear}`;
+      }
+
+      const weekdaysContainer = document.getElementById("calWeekdaysContainer");
+      if (weekdaysContainer) {
+        weekdaysContainer.innerHTML = I18N[currentLang].calWeekdays.map(d => `<div>${d}</div>`).join('');
+      }
+
+      const grid = document.getElementById("calendarGrid");
+      if (!grid) return;
+      grid.innerHTML = "";
+
+      const firstDay = new Date(calYear, calMonth, 1);
+      const daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+      const daysInPrevMonth = new Date(calYear, calMonth, 0).getDate();
+
+      let startDayOfWeek = firstDay.getDay() - 1;
+      if (startDayOfWeek === -1) startDayOfWeek = 6;
+
+      const todayStr = new Date().toISOString().split("T")[0];
+
+      for (let i = startDayOfWeek - 1; i >= 0; i--) {
+        const dNum = daysInPrevMonth - i;
+        const cell = document.createElement("div");
+        cell.className = "cal-day-cell other-month";
+        cell.innerHTML = `<div class="cal-day-num">${dNum}</div>`;
+        grid.appendChild(cell);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const currentIsoDate = `${calYear}-${String(calMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const isToday = currentIsoDate === todayStr;
+
+        const cell = document.createElement("div");
+        cell.className = `cal-day-cell${isToday ? ' today' : ''}`;
+        cell.innerHTML = `<div class="cal-day-num"><span>${day < 10 ? '0' + day : day}</span>${isToday ? '<span style="color:var(--gold); font-size:0.65rem;">★</span>' : ''}</div>`;
+
+        db.cards.forEach(c => {
+          if (c.cut === day) {
+            cell.innerHTML += `<div class="cal-badge cal-cut" title="${t('lblCut')}: ${escapeHtml(c.name)}">✂️ ${t('lblCut')}: ${escapeHtml(c.name)}</div>`;
+          }
+          if (c.pay === day) {
+            cell.innerHTML += `<div class="cal-badge cal-pay" title="${t('lblPay')}: ${escapeHtml(c.name)}">💳 ${t('lblPay')}: ${escapeHtml(c.name)}</div>`;
+          }
+        });
+
+        const dayTxs = db.transactions.filter(tr => tr.date === currentIsoDate);
+        dayTxs.forEach(tr => {
+          const isInc = tr.type === "ingreso";
+          cell.innerHTML += `
+            <div class="cal-badge ${isInc ? 'cal-inc' : 'cal-exp'}" title="${escapeHtml(tr.desc)}: ${formatMoney(tr.amount)}">
+              ${isInc ? '➕' : '➖'} ${escapeHtml(tr.desc)} (${formatMoney(tr.amount)})
+            </div>
+          `;
+        });
+
+        grid.appendChild(cell);
+      }
+
+      const totalCells = startDayOfWeek + daysInMonth;
+      const remainder = (7 - (totalCells % 7)) % 7;
+      for (let i = 1; i <= remainder; i++) {
+        const cell = document.createElement("div");
+        cell.className = "cal-day-cell other-month";
+        cell.innerHTML = `<div class="cal-day-num">${i}</div>`;
+        grid.appendChild(cell);
+      }
+    }
+
+    // 6. SIMULADOR CON TABLA ANUAL
+    function computeSim() {
+      const P = parseFloat(document.getElementById("simInit").value) || 0;
+      const PMT = parseFloat(document.getElementById("simMonthly").value) || 0;
+      const r = (parseFloat(document.getElementById("simApy").value) || 0) / 100 / 12;
+      const years = parseInt(document.getElementById("simYears").value, 10) || 0;
+
+      let balance = P;
+      let deposits = P;
+
+      const tbody = document.getElementById("simTableTbody");
+      if (tbody) tbody.innerHTML = "";
+
+      for (let yr = 1; yr <= years; yr++) {
+        for (let m = 0; m < 12; m++) {
+          balance = balance * (1 + r) + PMT;
+          deposits += PMT;
+        }
+
+        const interestEarned = Math.max(0, balance - deposits);
+
+        if (tbody) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td class="text-center font-mono" style="font-weight:700;">${yr}</td>
+            <td class="text-right font-mono">${formatMoney(deposits)}</td>
+            <td class="text-right font-mono" style="color:var(--primary); font-weight:700;">${formatMoney(interestEarned)}</td>
+            <td class="text-right font-mono" style="color:var(--gold-light); font-weight:800;">${formatMoney(balance)}</td>
+          `;
+          tbody.appendChild(tr);
+        }
+      }
+
+      const totalInterest = Math.max(0, balance - deposits);
+      document.getElementById("simResultFinal").textContent = formatMoney(balance);
+      document.getElementById("simResultDeposits").textContent = formatMoney(deposits);
+      document.getElementById("simResultInterest").textContent = formatMoney(totalInterest);
+    }
+
+    // RESPALDO Y RESTAURACIÓN
+    function exportData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(db, null, 2));
+      const a = document.createElement("a");
+      a.setAttribute("href", dataStr);
+      a.setAttribute("download", `fhd_finanzas_backup_${new Date().toISOString().split("T")[0]}.json`);
+      a.click();
+      notify(t("msgBackupDownloaded"));
+    }
+
+    function importData(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        try {
+          const parsed = JSON.parse(evt.target.result);
+          if (!parsed || typeof parsed !== 'object') throw new Error("JSON corrupto");
+          db = {
+            cards: Array.isArray(parsed.cards) ? parsed.cards : [],
+            transactions: Array.isArray(parsed.transactions) ? parsed.transactions : [],
+            accounts: Array.isArray(parsed.accounts) ? parsed.accounts : [],
+            goals: Array.isArray(parsed.goals) ? parsed.goals : []
+          };
+          db.transactions.forEach(tr => {
+            if (!tr.date) tr.date = new Date().toISOString().slice(0, 10);
+            if (!tr.month) tr.month = tr.date.slice(0, 7);
+          });
+          saveState();
+          renderAll();
+          renderCalendar();
+          computeSim();
+          notify(t("msgDbRestored"));
+        } catch (err) {
+          alert(t("msgJsonError"));
+        } finally {
+          e.target.value = "";
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function renderAll() {
+      renderTC();
+      renderTX();
+      renderACC();
+      renderGoals();
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      setLanguage(currentLang);
+      loadState();
+    });
+  </script>
+</body>
+</html>
