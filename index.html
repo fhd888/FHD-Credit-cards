@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>F.H.D Finanzas - Financial Health Development</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js para gráficas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              500: '#15803d',
+              600: '#166534',
+              900: '#14532d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos para scrollbars sutiles */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .dark ::-webkit-scrollbar-thumb { background: #334155; }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-full flex flex-col font-sans transition-colors duration-200">
+
+  <!-- Header Superior -->
+  <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white font-black text-lg shadow-md shadow-emerald-500/20">
+          FHD
+        </div>
+        <div>
+          <h1 class="text-base font-bold leading-tight">F.H.D Finanzas</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Financial Health Development</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="toggleTheme()" class="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition">
+          <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegación por Pestañas -->
+  <nav class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4">
+    <div class="max-w-7xl mx-auto flex gap-2 overflow-x-auto py-2 no-scrollbar">
+      <button onclick="switchTab('resumen')" id="tabBtn-resumen" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-400 transition">
+        Resumen
+      </button>
+      <button onclick="switchTab('transacciones')" id="tabBtn-transacciones" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        Transacciones
+      </button>
+      <button onclick="switchTab('cuentas')" id="tabBtn-cuentas" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        Cuentas y Tarjetas
+      </button>
+      <button onclick="switchTab('metas')" id="tabBtn-metas" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        Metas de Ahorro
+      </button>
+      <button onclick="switchTab('activos')" id="tabBtn-activos" class="tab-btn px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+        Activos & Portafolio
+      </button>
+    </div>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6 flex-1">
+
+    <!-- PESTAÑA: RESUMEN -->
+    <section id="tab-resumen" class="tab-content space-y-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <p class="text-xs uppercase font-bold text-slate-400 tracking-wider">Patrimonio Neto Total</p>
+          <h2 id="totalNetWorth" class="text-3xl font-extrabold mt-1 text-slate-900 dark:text-white">$0.00</h2>
+        </div>
+        <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <p class="text-xs uppercase font-bold text-emerald-600 dark:text-emerald-400 tracking-wider">Ingresos del Mes</p>
+          <h2 id="monthlyIncome" class="text-2xl font-bold mt-1 text-emerald-600 dark:text-emerald-400">$0.00</h2>
+        </div>
+        <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <p class="text-xs uppercase font-bold text-rose-600 dark:text-rose-400 tracking-wider">Gastos del Mes</p>
+          <h2 id="monthlyExpenses" class="text-2xl font-bold mt-1 text-rose-600 dark:text-rose-400">$0.00</h2>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <h3 class="text-base font-bold mb-4">Distribución Financiera</h3>
+        <div class="h-64 flex items-center justify-center">
+          <canvas id="overviewChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTAÑA: TRANSACCIONES -->
+    <section id="tab-transacciones" class="tab-content hidden space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-lg font-bold">Registro de Movimientos</h2>
+        <button onclick="openCreateModal('transactions')" class="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i> Nueva Transacción
+        </button>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800 text-xs font-bold text-slate-500 uppercase">
+                <th class="px-5 py-3">Fecha</th>
+                <th class="px-5 py-3">Concepto</th>
+                <th class="px-5 py-3">Categoría</th>
+                <th class="px-5 py-3">Tipo</th>
+                <th class="px-5 py-3 text-right">Monto</th>
+                <th class="px-5 py-3 text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="transactionsTableBody" class="divide-y divide-slate-100 dark:divide-slate-800 text-sm"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PESTAÑA: CUENTAS Y TARJETAS -->
+    <section id="tab-cuentas" class="tab-content hidden space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-lg font-bold">Cuentas Bancarias & Tarjetas de Crédito</h2>
+        <button onclick="openCreateModal('cards')" class="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i> Añadir Cuenta / Tarjeta
+        </button>
+      </div>
+
+      <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- PESTAÑA: METAS DE AHORRO -->
+    <section id="tab-metas" class="tab-content hidden space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-lg font-bold">Metas de Ahorro y Fondos</h2>
+        <button onclick="openCreateModal('goals')" class="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i> Crear Meta
+        </button>
+      </div>
+
+      <div id="goalsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+
+    <!-- PESTAÑA: ACTIVOS E INVERSIONES -->
+    <section id="tab-activos" class="tab-content hidden space-y-4">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <h2 class="text-lg font-bold">Portafolio de Activos e Inversiones</h2>
+        <button onclick="openCreateModal('assets')" class="flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-semibold shadow-sm transition">
+          <i data-lucide="plus-circle" class="w-4 h-4"></i> Agregar Activo
+        </button>
+      </div>
+
+      <div id="assetsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+    </section>
+
+  </main>
+
+  <!-- MODAL UNIVERSAL PARA EDITAR Y MODIFICAR REGISTROS -->
+  <div id="universalEditModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-md w-full p-6 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+        <h3 id="modalTitle" class="text-base font-bold text-slate-900 dark:text-white">Modificar Registro</h3>
+        <button onclick="closeModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <form id="universalForm" onsubmit="handleFormSubmit(event)" class="mt-4 space-y-4">
+        <input type="hidden" id="formCategory">
+        <input type="hidden" id="formMode"> <!-- 'create' o 'edit' -->
+        <input type="hidden" id="formItemId">
+
+        <div id="formDynamicFields" class="space-y-3"></div>
+
+        <div class="flex justify-end gap-2 pt-4 border-t border-slate-100 dark:border-slate-800">
+          <button type="button" onclick="closeModal()" class="px-4 py-2 text-sm font-semibold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 rounded-xl transition">
+            Cancelar
+          </button>
+          <button type="submit" class="px-5 py-2 text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-xl shadow-sm transition">
+            Guardar Cambios
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // --- ESTADO INICIAL Y PERSISTENCIA (LocalStorage) ---
+    const DEFAULT_DATA = {
+      transactions: [
+        { id: 't1', date: '2026-10-18', concept: 'Depósito Nómina', amount: 3200.00, type: 'income', category: 'Ingresos' },
+        { id: 't2', date: '2026-10-19', concept: 'Pago Préstamo Nissan Pathfinder', amount: 480.00, type: 'expense', category: 'Vehículo' },
+        { id: 't3', date: '2026-10-19', concept: 'Supermercado y Despensa', amount: 154.20, type: 'expense', category: 'Alimentos' }
+      ],
+      cards: [
+        { id: 'c1', name: 'Cuenta de Cheques Principal', type: 'debit', balance: 4120.00, last4: '4821' },
+        { id: 'c2', name: 'Tarjeta Platinum Rewards', type: 'credit', balance: 1350.00, limit: 7500.00, last4: '9034' }
+      ],
+      goals: [
+        { id: 'g1', name: 'Fondo de Emergencia', currentAmount: 5000, targetAmount: 10000 },
+        { id: 'g2', name: 'Vacaciones Familiares', currentAmount: 1200, targetAmount: 2500 }
+      ],
+      assets: [
+        { id: 'a1', name: 'Portafolio Webull', type: 'Acciones / ETFs', value: 8500.00 },
+        { id: 'a2', name: 'Vehículo 2022 Nissan Pathfinder', type: 'Activo Físico', value: 28000.00 }
+      ]
+    };
+
+    let appData = JSON.parse(localStorage.getItem('fhd_finance_store')) || DEFAULT_DATA;
+
+    function saveState() {
+      localStorage.setItem('fhd_finance_store', JSON.stringify(appData));
+      renderAll();
+    }
+
+    // --- MANEJO DE PESTAÑAS ---
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald-50', 'text-emerald-700', 'dark:bg-emerald-950/50', 'dark:text-emerald-400');
+        btn.classList.add('text-slate-600', 'dark:text-slate-400');
+      });
+
+      const activeSection = document.getElementById(`tab-${tabId}`);
+      if (activeSection) activeSection.classList.remove('hidden');
+
+      const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-600', 'dark:text-slate-400');
+        activeBtn.classList.add('bg-emerald-50', 'text-emerald-700', 'dark:bg-emerald-950/50', 'dark:text-emerald-400');
+      }
+
+      if (tabId === 'resumen') renderChart();
+    }
+
+    // --- APERTURA DE MODALES DINÁMICOS (CREAR Y EDITAR) ---
+    function openCreateModal(category) {
+      prepareModal(category, 'create', null);
+    }
+
+    function openEditModal(category, id) {
+      prepareModal(category, 'edit', id);
+    }
+
+    function prepareModal(category, mode, id) {
+      const modal = document.getElementById('universalEditModal');
+      const title = document.getElementById('modalTitle');
+      const formCategory = document.getElementById('formCategory');
+      const formMode = document.getElementById('formMode');
+      const formItemId = document.getElementById('formItemId');
+      const container = document.getElementById('formDynamicFields');
+
+      formCategory.value = category;
+      formMode.value = mode;
+      formItemId.value = id || '';
+      container.innerHTML = '';
+
+      if (category === 'transactions') {
+        const item = mode === 'edit' ? appData.transactions.find(t => t.id === id) : { date: new Date().toISOString().split('T')[0], concept: '', category: 'General', amount: '', type: 'expense' };
+        title.innerText = mode === 'edit' ? 'Editar Transacción' : 'Nueva Transacción';
+        container.innerHTML = `
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Concepto</label>
+            <input type="text" id="tConcept" value="${item.concept}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Monto ($)</label>
+              <input type="number" step="0.01" id="tAmount" value="${item.amount}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Fecha</label>
+              <input type="date" id="tDate" value="${item.date}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Tipo</label>
+              <select id="tType" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                <option value="expense" ${item.type === 'expense' ? 'selected' : ''}>Gasto</option>
+                <option value="income" ${item.type === 'income' ? 'selected' : ''}>Ingreso</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Categoría</label>
+              <input type="text" id="tCategory" value="${item.category}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+          </div>
+        `;
+      } else if (category === 'cards') {
+        const item = mode === 'edit' ? appData.cards.find(c => c.id === id) : { name: '', type: 'debit', balance: '', limit: '', last4: '' };
+        title.innerText = mode === 'edit' ? 'Editar Cuenta o Tarjeta' : 'Añadir Cuenta o Tarjeta';
+        container.innerHTML = `
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre de Cuenta / Tarjeta</label>
+            <input type="text" id="cName" value="${item.name}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Tipo</label>
+              <select id="cType" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+                <option value="debit" ${item.type === 'debit' ? 'selected' : ''}>Débito / Cheques</option>
+                <option value="credit" ${item.type === 'credit' ? 'selected' : ''}>Crédito</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Últimos 4 Dígitos</label>
+              <input type="text" maxlength="4" id="cLast4" value="${item.last4 || ''}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Saldo ($)</label>
+              <input type="number" step="0.01" id="cBalance" value="${item.balance}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Límite ($) (Opcional)</label>
+              <input type="number" step="0.01" id="cLimit" value="${item.limit || ''}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white">
+            </div>
+          </div>
+        `;
+      } else if (category === 'goals') {
+        const item = mode === 'edit' ? appData.goals.find(g => g.id === id) : { name: '', currentAmount: '', targetAmount: '' };
+        title.innerText = mode === 'edit' ? 'Modificar Meta de Ahorro' : 'Crear Nueva Meta';
+        container.innerHTML = `
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre del Objetivo</label>
+            <input type="text" id="gName" value="${item.name}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Monto Actual ($)</label>
+              <input type="number" step="0.01" id="gCurrent" value="${item.currentAmount}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Meta Total ($)</label>
+              <input type="number" step="0.01" id="gTarget" value="${item.targetAmount}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+          </div>
+        `;
+      } else if (category === 'assets') {
+        const item = mode === 'edit' ? appData.assets.find(a => a.id === id) : { name: '', type: 'Acciones / ETFs', value: '' };
+        title.innerText = mode === 'edit' ? 'Editar Activo' : 'Añadir Activo';
+        container.innerHTML = `
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Nombre del Activo</label>
+            <input type="text" id="aName" value="${item.name}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+          </div>
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Tipo de Activo</label>
+              <input type="text" id="aType" value="${item.type}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Valoración ($)</label>
+              <input type="number" step="0.01" id="aValue" value="${item.value}" class="w-full px-3 py-2 border rounded-xl dark:bg-slate-800 dark:border-slate-700 dark:text-white" required>
+            </div>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('universalEditModal').classList.add('hidden');
+    }
+
+    // --- PROCESAMIENTO DE ENVÍO DE FORMULARIO ---
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const category = document.getElementById('formCategory').value;
+      const mode = document.getElementById('formMode').value;
+      const id = document.getElementById('formItemId').value;
+
+      if (category === 'transactions') {
+        const payload = {
+          id: mode === 'edit' ? id : 't_' + Date.now(),
+          concept: document.getElementById('tConcept').value,
+          amount: parseFloat(document.getElementById('tAmount').value) || 0,
+          date: document.getElementById('tDate').value,
+          type: document.getElementById('tType').value,
+          category: document.getElementById('tCategory').value
+        };
+        if (mode === 'edit') {
+          const idx = appData.transactions.findIndex(t => t.id === id);
+          if (idx !== -1) appData.transactions[idx] = payload;
+        } else {
+          appData.transactions.unshift(payload);
+        }
+      } else if (category === 'cards') {
+        const payload = {
+          id: mode === 'edit' ? id : 'c_' + Date.now(),
+          name: document.getElementById('cName').value,
+          type: document.getElementById('cType').value,
+          last4: document.getElementById('cLast4').value,
+          balance: parseFloat(document.getElementById('cBalance').value) || 0,
+          limit: parseFloat(document.getElementById('cLimit').value) || 0
+        };
+        if (mode === 'edit') {
+          const idx = appData.cards.findIndex(c => c.id === id);
+          if (idx !== -1) appData.cards[idx] = payload;
+        } else {
+          appData.cards.push(payload);
+        }
+      } else if (category === 'goals') {
+        const payload = {
+          id: mode === 'edit' ? id : 'g_' + Date.now(),
+          name: document.getElementById('gName').value,
+          currentAmount: parseFloat(document.getElementById('gCurrent').value) || 0,
+          targetAmount: parseFloat(document.getElementById('gTarget').value) || 0
+        };
+        if (mode === 'edit') {
+          const idx = appData.goals.findIndex(g => g.id === id);
+          if (idx !== -1) appData.goals[idx] = payload;
+        } else {
+          appData.goals.push(payload);
+        }
+      } else if (category === 'assets') {
+        const payload = {
+          id: mode === 'edit' ? id : 'a_' + Date.now(),
+          name: document.getElementById('aName').value,
+          type: document.getElementById('aType').value,
+          value: parseFloat(document.getElementById('aValue').value) || 0
+        };
+        if (mode === 'edit') {
+          const idx = appData.assets.findIndex(a => a.id === id);
+          if (idx !== -1) appData.assets[idx] = payload;
+        } else {
+          appData.assets.push(payload);
+        }
+      }
+
+      saveState();
+      closeModal();
+    }
+
+    // --- ELIMINAR ELEMENTOS ---
+    function deleteItem(category, id) {
+      if (!confirm('¿Estás seguro de que deseas eliminar este registro?')) return;
+      appData[category] = appData[category].filter(item => item.id !== id);
+      saveState();
+    }
+
+    // --- RENDERIZACIÓN DE TODAS LAS VISTAS ---
+    function renderAll() {
+      renderTransactions();
+      renderCards();
+      renderGoals();
+      renderAssets();
+      renderSummaryCards();
+      renderChart();
+      lucide.createIcons();
+    }
+
+    function renderTransactions() {
+      const tbody = document.getElementById('transactionsTableBody');
+      tbody.innerHTML = appData.transactions.map(t => `
+        <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition">
+          <td class="px-5 py-3 whitespace-nowrap text-slate-500">${t.date}</td>
+          <td class="px-5 py-3 font-semibold text-slate-900 dark:text-white">${t.concept}</td>
+          <td class="px-5 py-3"><span class="px-2.5 py-1 text-xs rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-medium">${t.category}</span></td>
+          <td class="px-5 py-3"><span class="text-xs font-bold ${t.type === 'income' ? 'text-emerald-600' : 'text-rose-600'}">${t.type === 'income' ? 'Ingreso' : 'Gasto'}</span></td>
+          <td class="px-5 py-3 text-right font-bold ${t.type === 'income' ? 'text-emerald-600' : 'text-slate-900 dark:text-white'}">$${t.amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</td>
+          <td class="px-5 py-3 text-center whitespace-nowrap">
+            <button onclick="openEditModal('transactions', '${t.id}')" class="p-1.5 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/30 rounded-lg transition mr-1" title="Editar">
+              <i data-lucide="edit-3" class="w-4 h-4"></i>
+            </button>
+            <button onclick="deleteItem('transactions', '${t.id}')" class="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-lg transition" title="Eliminar">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function renderCards() {
+      const container = document.getElementById('cardsGrid');
+      container.innerHTML = appData.cards.map(c => `
+        <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2 py-0.5 rounded-md ${c.type === 'credit' ? 'bg-amber-100 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400' : 'bg-blue-100 dark:bg-blue-950/40 text-blue-700 dark:text-blue-400'} uppercase">${c.type}</span>
+              <span class="text-xs text-slate-400 font-mono">•••• ${c.last4 || '0000'}</span>
+            </div>
+            <h4 class="font-bold text-base mt-2">${c.name}</h4>
+            <div class="mt-4">
+              <p class="text-xs text-slate-400">Saldo actual</p>
+              <p class="text-2xl font-extrabold text-slate-900 dark:text-white">$${c.balance.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+            </div>
+            ${c.limit ? `<p class="text-xs text-slate-500 mt-1">Límite disponible: $${(c.limit - c.balance).toLocaleString('en-US', { minimumFractionDigits: 2 })} /$${c.limit.toLocaleString('en-US')}</p>` : ''}
+          </div>
+          <div class="flex items-center justify-end gap-2 pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openEditModal('cards', '${c.id}')" class="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 rounded-xl transition">
+              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Editar
+            </button>
+            <button onclick="deleteItem('cards', '${c.id}')" class="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGoals() {
+      const container = document.getElementById('goalsGrid');
+      container.innerHTML = appData.goals.map(g => {
+        const pct = Math.min(100, Math.round((g.currentAmount / g.targetAmount) * 100));
+        return `
+          <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start">
+                <h4 class="font-bold text-base">${g.name}</h4>
+                <span class="text-xs font-black text-emerald-600 bg-emerald-50 dark:bg-emerald-950/40 px-2 py-0.5 rounded-md">${pct}%</span>
+              </div>
+              <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-3">
+                <div class="bg-emerald-500 h-full rounded-full transition-all duration-300" style="width: ${pct}%"></div>
+              </div>
+              <div class="flex justify-between text-xs text-slate-500 mt-2 font-medium">
+                <span>$${g.currentAmount.toLocaleString()}</span>
+                <span>Meta: $${g.targetAmount.toLocaleString()}</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+              <button onclick="openEditModal('goals', '${g.id}')" class="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 rounded-xl transition">
+                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Editar
+              </button>
+              <button onclick="deleteItem('goals', '${g.id}')" class="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition">
+                <i data-lucide="trash-2" class="w-4 h-4"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAssets() {
+      const container = document.getElementById('assetsGrid');
+      container.innerHTML = appData.assets.map(a => `
+        <div class="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-slate-400 uppercase">${a.type}</span>
+            <h4 class="font-bold text-base mt-1">${a.name}</h4>
+            <p class="text-2xl font-extrabold text-slate-900 dark:text-white mt-3">$${a.value.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
+          </div>
+          <div class="flex items-center justify-end gap-2 pt-4 mt-4 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openEditModal('assets', '${a.id}')" class="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-blue-600 bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 rounded-xl transition">
+              <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Editar
+            </button>
+            <button onclick="deleteItem('assets', '${a.id}')" class="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 rounded-xl transition">
+              <i data-lucide="trash-2" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderSummaryCards() {
+      const totalAccounts = appData.cards.reduce((acc, c) => acc + (c.type === 'debit' ? c.balance : -c.balance), 0);
+      const totalAssets = appData.assets.reduce((acc, a) => acc + a.value, 0);
+      const netWorth = totalAccounts + totalAssets;
+
+      const income = appData.transactions.filter(t => t.type === 'income').reduce((acc, t) => acc + t.amount, 0);
+      const expense = appData.transactions.filter(t => t.type === 'expense').reduce((acc, t) => acc + t.amount, 0);
+
+      document.getElementById('totalNetWorth').innerText = `$${netWorth.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('monthlyIncome').innerText = `$${income.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+      document.getElementById('monthlyExpenses').innerText = `$${expense.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    }
+
+    let overviewChartInstance = null;
+    function renderChart() {
+      const ctx = document.getElementById('overviewChart');
+      if (!ctx) return;
+
+      const totalCash = appData.cards.filter(c => c.type === 'debit').reduce((acc, c) => acc + c.balance, 0);
+      const totalInvestments = appData.assets.reduce((acc, a) => acc + a.value, 0);
+      const totalGoals = appData.goals.reduce((acc, g) => acc + g.currentAmount, 0);
+
+      if (overviewChartInstance) overviewChartInstance.destroy();
+
+      overviewChartInstance = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Efectivo / Cuentas', 'Activos / Portafolio', 'Fondos de Ahorro'],
+          datasets: [{
+            data: [totalCash, totalInvestments, totalGoals],
+            backgroundColor: ['#10b981', '#3b82f6', '#f59e0b'],
+            borderWidth: 0
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom' }
+          }
+        }
+      });
+    }
+
+    // --- TEMA CLARO / OSCURO ---
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Inicialización al cargar la página
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAll();
+    });
+  </script>
+</body>
+</html>
